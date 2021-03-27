@@ -135,18 +135,52 @@ Commom elements
 	font-weight: 500;
 	min-width: 195px;
 	padding: 23px 20px;
+	border:2px transparent solid;
 	border-radius: 50px;
 	text-transform: uppercase;
 	background: #fc0254;
-	color: #fff;
+	color: white;
 	line-height: normal;
 	cursor: pointer;
 	text-align: center;
+	transition: 0.2s;
+}
+.site-btn:hover
+{
+	border:2px #fc0254 solid;
+	background-color: transparent;
+	color:#fc0254;
+	transition:0.2s;
+	font-weight: 1000;
 }
 
-.site-btn:hover {
+
+.slide:hover, .slide:focus {
+	box-shadow: inset 12em 0 0 0 var(--hover);
+}
+.slide {
+	--color: #fc0254 ;
+	--hover: #fc0254;
+}
+.slidebut {
+	color: var(--color);
+	transition: 0.25s;
+}
+.slidebut:hover, .slidebut:focus {
+	border-color: var(--hover);
 	color: #fff;
 }
+.slidebut {
+	background: none;
+	border: 2px solid;
+	font: inherit;
+	line-height: 1;
+	margin: 0.5em;
+	min-width: 195px;
+	padding: 23px 20px;
+	border-radius: 50px;
+	font-weight: 1000;
+  } 
 
 .site-btn.sb-c2 {
 	background: #383b70;
@@ -161,7 +195,7 @@ Commom elements
 	top: 0;
 	left: 0;
 	z-index: 999999;
-	background: #000;
+	background: #08192d;
 }
 
 .loader {
@@ -173,8 +207,8 @@ Commom elements
 	margin-top: -13px;
 	margin-left: -13px;
 	border-radius: 60px;
-	animation: loader 0.8s linear infinite;
-	-webkit-animation: loader 0.8s linear infinite;
+	animation: loader 0.4s linear infinite;
+	-webkit-animation: loader 0.4s linear infinite;
 }
 
 @keyframes loader {
@@ -241,7 +275,11 @@ Header section
 .header-right .hr-btn {
 	display: inline-block;
 	color: #979aa5;
+} .hr-btn {
+	display: inline-block;
+	color: #979aa5;
 }
+
 
 .header-right .user-panel {
 	display: inline-block;
