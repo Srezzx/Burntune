@@ -684,22 +684,29 @@ Responsive
 }
 
 .footer-widget h2 {
+  text-align: center;
   font-size: 16px;
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .footer-widget ul {
   list-style: none;
+  text-align: center;
 }
 
 .footer-widget ul li a {
   display: inline-block;
   color: #6a7080;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
+
+.footer-widget ul li:hover a {
+  color:white;
+}
+
 
 .copyright {
   font-size: 11px;
@@ -714,6 +721,9 @@ Responsive
   color: #6a7080;
   font-size: 18px;
   margin-right: 35px;
+}
+.social-links a:hover {
+  color:white;
 }
 
 /* ----------------
@@ -1893,7 +1903,10 @@ Responsive
   }
 }
 
-
+.nav-item.padddd
+{
+  padding-right:20px;
+}
 a.nav-link 
 {
 	color:white;
@@ -1956,6 +1969,6 @@ a.nav-link2:hover
 
 .hovercolorchange:hover
 {
-  color:#FC0290;
+  color:#FC0254;
   transition:0.1s;
 }
