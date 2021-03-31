@@ -1,0 +1,47 @@
+<% if(locals.errors){ %> 
+  <% errors.forEach(function(error) { %>
+  <div id="error_msg2" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <span><%= error.msg %></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% }); %>
+<% } %> 
+<% if(success_msg != ''){ %>
+  <div id="success_msg"class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= success_msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } %> <% if(error_msg != ''){ %>
+  <div id="error_msg" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error_msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } %> <% if(error != ''){ %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+
+<script>
+  setTimeout(function() {
+    $('#success_msg').fadeOut('slow');
+}, 5000); // <-- time in milliseconds
+
+setTimeout(function() {
+    $('#error_msg').fadeOut('slow');
+}, 5000); // <-- time in milliseconds
+
+setTimeout(function() {
+    $('#error_msg2').fadeOut('slow');
+}, 5000); // <-- time in milliseconds
+
+</script>
