@@ -24,7 +24,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  color: #0a183d;
+  color: #1A2930;
   font-weight: 600;
   line-height: 1;
 }
@@ -430,11 +430,12 @@ Hero section
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: #0a183d;
+  background: #212529;
+;
 }
 
 .hs-item h2 {
-  color: #fff;
+  /* color: #fff; */
   font-size: 70px;
   margin-bottom: 25px;
   line-height: 0.9;
@@ -448,7 +449,7 @@ Hero section
 }
 
 .hs-item p {
-  color: #ffffff;
+  /* color: #ffffff; */
   opacity: 0.6;
   margin-bottom: 50px;
   position: relative;
@@ -527,7 +528,7 @@ Hero section
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #383b70;
+  background: #2b2b2b;
   margin-right: 10px;
 }
 
@@ -549,7 +550,8 @@ How section
  -------------------*/
 
 .how-section {
-  background-color: #0a183d;
+  background-color: #0a183d
+;
 }
 
 .how-item .hi-icon {
@@ -603,7 +605,8 @@ Subscription section
  -----------------------*/
 
 .subscription-section {
-  background: #0a183d;
+  background: #212529
+;
 }
 
 .sub-text {
@@ -624,7 +627,6 @@ Subscription section
 }
 
 .sub-text p {
-  color: #fff;
   font-weight: 400;
   opacity: 0.6;
   margin-bottom: 40px;
@@ -632,7 +634,7 @@ Subscription section
 
 .sub-list {
   list-style: none;
-  background: #1c294a;
+  background: rgb(24, 26, 27);
   padding: 70px 15px 50px 155px;
   border-radius: 42px;
 }
@@ -685,7 +687,7 @@ Responsive
  -------------------*/
 
 .footer-section {
-  background: #0a183d;
+  background: rgb(24, 26, 27);
   padding: 40px 0 40px;
 }
 
@@ -714,7 +716,7 @@ Responsive
 }
 
 .footer-widget ul li:hover a {
-  color: white;
+  color: rgb(158, 150, 137);
 }
 
 .copyright {
@@ -901,7 +903,7 @@ Contact page
 
 .contact-warp ul li {
   font-size: 14px;
-  color: #0a183d;
+  color: #1A2930;
   font-size: 14px;
   margin-bottom: 15px;
   font-weight: 500;
@@ -959,7 +961,7 @@ Category page
 }
 
 .category-links a.active {
-  border-bottom: 2px solid #fc0254;
+  border-bottom: 2px solid #fzce3e;
 }
 
 .category-item {
@@ -1004,7 +1006,7 @@ Category page
   height: 71px;
   right: 29px;
   bottom: 21px;
-  color: #fc0254;
+  color: #fzce3e;
   font-size: 16px;
   text-align: center;
   border-radius: 50%;
@@ -1165,7 +1167,7 @@ Category page
 .jp-current-time {
   position: absolute;
   font-size: 14px;
-  color: #0a183d;
+  color: #1A2930;
   right: -40px;
   top: 100%;
   padding-top: 15px;
@@ -1276,7 +1278,7 @@ Artest Page
   right: 0;
   bottom: 0;
   font-size: 14px;
-  color: #0a183d;
+  color: #1A2930;
   font-weight: 500;
   background: #fff;
   padding-right: 2px;
@@ -1320,7 +1322,7 @@ Artest Page
   float: left;
   margin-right: 6px;
   font-weight: 600;
-  color: #0a183d;
+  color: #1A2930;
 }
 
 .song-details-box ul span {
@@ -1924,14 +1926,14 @@ a.nav-link {
 }
 a.nav-link:hover {
   transition: 0.1s;
-  color: #fc0254;
+  color: rgb(158, 150, 137);;
 }
 a.nav-link2 {
-  color: #fc0254;
+  color: rgb(158, 150, 137);;
 }
 a.nav-link2:hover {
   transition: 0.1s;
-  color: #fc0290;
+  color: rgb(158, 150, 137);;
 }
 .navbar-brand {
   color: white;
@@ -1940,7 +1942,7 @@ a.nav-link2:hover {
   color: white;
 }
 .dropdown-item:hover {
-  color: #fc0290;
+  color: rgb(158, 150, 137);;
 }
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -2000,10 +2002,10 @@ a.nav-link2:hover {
 
 .concept-item img {
   transition: transform 0.2s, filter 1.5s ease-in-out;
-  filter: grayscale(75%);
+  /* filter: grayscale(25%); */
 }
 .concept-item img:hover {
-  filter: grayscale(0);
+  /* filter: grayscale(0); */
   transform: scale(1.05);
 }
 
@@ -2013,3 +2015,7 @@ a.nav-link2:hover {
   overflow: hidden; /* Removing this will break the effects */
 }
 
+.textgold
+{
+  color: rgb(158, 150, 137);
+}
