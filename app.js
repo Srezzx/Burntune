@@ -71,6 +71,7 @@ app.use(function (req, res, next) {
 
 //ROUTES
 app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/index'));
 
 app.get("/", (req, res) => {
   res.render("index.ejs" );

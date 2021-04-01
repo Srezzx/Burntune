@@ -147,7 +147,7 @@ Commom elements
   background-color: transparent;
   color: #fc0254;
   transition: 0.2s;
-  font-weight: 1000;
+  font-weight: 500;
 }
 
 .slide:hover,
@@ -265,8 +265,8 @@ Header section
   width: 40px;
   height: 40px;
   /* padding-top: 15px; */
-  margin-right:50px;
-  margin-left:20px;
+  margin-right: 50px;
+  margin-left: 20px;
 }
 @media (min-width: 768px) and (max-width: 992px) {
   .site-logo {
@@ -277,8 +277,8 @@ Header section
     width: 40px;
     height: 40px;
     /* padding-top: 8px; */
-	margin-right:50px;
-	margin-left:20px;
+    margin-right: 50px;
+    margin-left: 20px;
   }
 }
 @media (min-width: 440px) and (max-width: 767px) {
@@ -290,8 +290,8 @@ Header section
     width: 40px;
     height: 40px;
     /* padding-top: 12px; */
-	margin-right:50px;
-	margin-left:20px;
+    margin-right: 50px;
+    margin-left: 20px;
   }
 }
 @media (max-width: 439px) {
@@ -303,8 +303,8 @@ Header section
     width: 40px;
     height: 40px;
     /* padding-top: 13px; */
-	/* margin-right:50px; */
-	margin-left:10px;
+    /* margin-right:50px; */
+    margin-left: 10px;
   }
 }
 .header-right {
@@ -418,6 +418,7 @@ Hero section
 
 .hero-section {
   overflow: hidden;
+  height: 100vh;
 }
 
 .hs-item {
@@ -515,8 +516,8 @@ Hero section
 
 .hero-slider .owl-dots {
   position: absolute;
-  bottom: 33px;
-  left: calc(50% - 588px);
+  bottom: 20vh;
+  left: 10vw;
   max-width: 1176px;
   width: 100%;
   padding-left: 15px;
@@ -556,7 +557,10 @@ How section
   width: 57px;
   height: 57px;
   border-radius: 50%;
-  background: #fc0254;
+  /* background: #fc0254; */
+  box-shadow: 0px 0px 25px 1px rgba(252, 2, 84, 1) inset;
+  -webkit-box-shadow: 0px 0px 25px 1px rgba(252, 2, 84, 1) inset;
+  -moz-box-shadow: 0px 0px 25px 1px rgba(252, 2, 84, 1) inset;
   margin-bottom: 25px;
 }
 
@@ -585,12 +589,13 @@ Concept section
 
 .concept-item {
   text-align: center;
-  padding-top: 35px;
+  /* padding-top: 35px; */
+  margin-bottom: 20px;
 }
 
 .concept-item img {
-  border-radius: 40px;
-  margin-bottom: 15px;
+  /* border-radius: 40px; */
+  /* margin-bottom: 15px; */
 }
 
 /* --------------------
@@ -647,18 +652,23 @@ Premium section
  -------------------*/
 
 .premium-section p {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .premium-item {
   text-align: center;
-  padding-top: 35px;
+  padding-top: 0px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .premium-item img {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
+  margin: 0;
+  width: 100%;
+  height: 230px;
+  border-radius: 0%;
   margin-bottom: 40px;
 }
 
@@ -704,9 +714,8 @@ Responsive
 }
 
 .footer-widget ul li:hover a {
-  color:white;
+  color: white;
 }
-
 
 .copyright {
   font-size: 11px;
@@ -723,7 +732,7 @@ Responsive
   margin-right: 35px;
 }
 .social-links a:hover {
-  color:white;
+  color: white;
 }
 
 /* ----------------
@@ -1540,6 +1549,10 @@ Responsive
 /* Tablet :768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* .hr-img {
+    width:500px;
+    height:500px;
+  } */
   .hr-img {
     display: none;
   }
@@ -1903,72 +1916,100 @@ Responsive
   }
 }
 
-.nav-item.padddd
-{
-  padding-right:20px;
+.nav-item.padddd {
+  padding-right: 20px;
 }
-a.nav-link 
-{
-	color:white;
+a.nav-link {
+  color: white;
 }
-a.nav-link:hover
-{
-	transition:0.1s;
-	color:#FC0254;
+a.nav-link:hover {
+  transition: 0.1s;
+  color: #fc0254;
 }
-a.nav-link2 
-{
-	color:#FC0254;
+a.nav-link2 {
+  color: #fc0254;
 }
-a.nav-link2:hover
-{
-	transition:0.1s;
-	color:#FC0290;
+a.nav-link2:hover {
+  transition: 0.1s;
+  color: #fc0290;
 }
-.navbar-brand
-{
-	color:white;
+.navbar-brand {
+  color: white;
 }
-.dropdown-item
-{
-	color:white;
+.dropdown-item {
+  color: white;
 }
-.dropdown-item:hover
-{
-	color:#FC0290;
+.dropdown-item:hover {
+  color: #fc0290;
 }
 .custom-toggler .navbar-toggler-icon {
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(255, 102, 203);
+}
+
+@media (max-width: 992px) {
+  .disp992none {
+    display: none;
   }
-  
-  .custom-toggler.navbar-toggler {
-	border-color: rgb(255,102,203);
-  } 
-
-
-@media (max-width:992px)
-{
-	.disp992none
-	{
-		display: none;
-	}
 }
 
 .signupdiv {
-	background-image: url('/img/pictures/login5.jpg');
-	height: 1000px;
-	width:1000px;
-	background-size: cover;
- }
-
- .hovercolorchange
-{
-  color:white;
-  transition:0.1s;
+  background-image: url("/img/pictures/login5.jpg");
+  height: 1000px;
+  width: 1000px;
+  background-size: cover;
 }
 
-.hovercolorchange:hover
-{
-  color:#FC0254;
-  transition:0.1s;
+.hovercolorchange {
+  color: white;
+  transition: 0.1s;
 }
+
+.hovercolorchange:hover {
+  color: #fc0254;
+  transition: 0.1s;
+}
+
+.robotofont {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.1rem;
+}
+.robotofontheading {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.testimonial {
+  /* border:1px solid black; */
+  transition: 0.2s;
+}
+.testimonial:hover {
+  box-shadow: 0px 0px 10px 1px rgba(10, 24, 61, 0.51) inset;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(10, 24, 61, 0.51) inset;
+  -moz-box-shadow: 0px 0px 10px 1px rgba(10, 24, 61, 0.51) inset;
+  transition: 0.2s;
+}
+.col-lg-3 .col-sm-6 {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.concept-item img {
+  transition: transform 0.2s, filter 1.5s ease-in-out;
+  filter: grayscale(75%);
+}
+.concept-item img:hover {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+.concept-item {
+  /* border-radius: 40px; */
+   /* Modify this according to your need */
+  overflow: hidden; /* Removing this will break the effects */
+}
+
