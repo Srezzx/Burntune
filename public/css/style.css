@@ -15,6 +15,7 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1,
@@ -961,7 +962,7 @@ Category page
 }
 
 .category-links a.active {
-  border-bottom: 2px solid #fzce3e;
+  border-bottom: 2px solid #f2ce3e;
 }
 
 .category-item {
@@ -1006,7 +1007,7 @@ Category page
   height: 71px;
   right: 29px;
   bottom: 21px;
-  color: #fzce3e;
+  color: #f2ce3e;
   font-size: 16px;
   text-align: center;
   border-radius: 50%;

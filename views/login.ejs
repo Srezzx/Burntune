@@ -161,6 +161,14 @@
       {
         background-color: #212529;
       }
+      .form-control
+      {
+        max-width: 96%;
+      }
+      .btn-block
+      {
+        max-width: 96%;
+      }
     </style>
     <div class="content">
       <div class="container">
@@ -180,11 +188,11 @@
                   <h3 class="signup_h3"style="color:#692d63;text-align:center;">LOGIN</h3>
                 </div>
                 <form id="loginform" name="loginform" action="/login" method="POST">
-                  <div class="form-group first">
+                  <div class="maxwidthsetter form-group first">
                     <!-- <label for="username">Username</label> -->
                     <input style="padding-left:10px;" type="email" class="form-control" name="email" id="email" placeholder="Enter Email "/>
                   </div>
-                  <div class="form-group last mb-4">
+                  <div  class="form-group last mb-4">
                     <!-- <label  for="password">Password</label> -->
                     <input style="padding-left:10px;" type="password" class="form-control" name="password" id="password" placeholder="Password" />
                   </div>
@@ -201,7 +209,7 @@
                     <span class="xxx"style="font-weight:2000;">LOGIN</span> <i class="fa fa-arrow-right"></i>
                   </button>
                   <div class="adjustmediaregisternow row">
-                    <a style="text-decoration: none;" class="signup_a ml-auto mt-5" href="/register">Dont have an account ? <span class="hovercolorchange">Register Now !</span></a>
+                    <a style="text-decoration: none;" class="signup_a ml-auto mr-4 mt-5" href="/register">Dont have an account ? <span class="hovercolorchange">Register Now !</span></a>
                   </div>
                   <!-- <span class="d-block text-left my-4 text-muted">
                     or sign in with</span
@@ -224,7 +232,7 @@
         </div>
       </div>
     </div>
-    <footer class="footer-section">
+    <footer style="width:100vw"class="footer-section">
       <div class="container">
         <div class="row d-flex align-items-center">
           <div class="col-xl-6 col-lg-7 order-lg-2">
