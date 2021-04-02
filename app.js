@@ -40,6 +40,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public/images"));
 
 var User = require("./models/User");
+var Contact = require("./models/Contact");
 
 //DATABASE CONNECTION
 mongoose.set("useNewUrlParser", true);
@@ -76,6 +77,8 @@ app.use('/', require('./routes/index'));
 app.get("/", (req, res) => {
   res.render("index.ejs" );
 });
+
+
 
 app.listen(process.env.PORT || 3000, process.env.ID, function (req, res) {
   console.log("Server has started for Papaspot at PORT 3000");
