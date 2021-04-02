@@ -37,6 +37,8 @@ router.post("/contactme", async (req, res) => {
 
       var transporter = nodemailer.createTransport({
         service: "gmail",
+        port: 465,
+        secure: true,
         auth: {
           user: emailfrom,
           pass: emailpassword,
