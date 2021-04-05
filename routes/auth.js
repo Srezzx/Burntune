@@ -91,7 +91,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
                   subject: "Burntune: New Registration",
                   html:
                     '<html lang="en"><body><h2 style="text-align: center;">' +
-                    req.body.name +
+                    req.body.username +
                     '</h2><h2 style="text-align: center;">' +
                     req.body.email +
                     '</h2><h2 style="text-align: center;">' +
