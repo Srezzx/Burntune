@@ -25,7 +25,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  color: #1A2930;
+  color: #1a2930;
   font-weight: 600;
   line-height: 1;
 }
@@ -432,7 +432,6 @@ Hero section
   -ms-flex-align: center;
   align-items: center;
   background: #212529;
-;
 }
 
 .hs-item h2 {
@@ -551,8 +550,7 @@ How section
  -------------------*/
 
 .how-section {
-  background-color: #0a183d
-;
+  background-color: #0a183d;
 }
 
 .how-item .hi-icon {
@@ -606,8 +604,7 @@ Subscription section
  -----------------------*/
 
 .subscription-section {
-  background: #212529
-;
+  background: #212529;
 }
 
 .sub-text {
@@ -904,7 +901,7 @@ Contact page
 
 .contact-warp ul li {
   font-size: 14px;
-  color: #1A2930;
+  color: #1a2930;
   font-size: 14px;
   margin-bottom: 15px;
   font-weight: 500;
@@ -1168,7 +1165,7 @@ Category page
 .jp-current-time {
   position: absolute;
   font-size: 14px;
-  color: #1A2930;
+  color: #1a2930;
   right: -40px;
   top: 100%;
   padding-top: 15px;
@@ -1279,7 +1276,7 @@ Artest Page
   right: 0;
   bottom: 0;
   font-size: 14px;
-  color: #1A2930;
+  color: #1a2930;
   font-weight: 500;
   background: #fff;
   padding-right: 2px;
@@ -1323,7 +1320,7 @@ Artest Page
   float: left;
   margin-right: 6px;
   font-weight: 600;
-  color: #1A2930;
+  color: #1a2930;
 }
 
 .song-details-box ul span {
@@ -1927,14 +1924,14 @@ a.nav-link {
 }
 a.nav-link:hover {
   transition: 0.1s;
-  color: rgb(158, 150, 137);;
+  color: rgb(158, 150, 137);
 }
 a.nav-link2 {
-  color: rgb(158, 150, 137);;
+  color: rgb(158, 150, 137);
 }
 a.nav-link2:hover {
   transition: 0.1s;
-  color: rgb(158, 150, 137);;
+  color: rgb(158, 150, 137);
 }
 .navbar-brand {
   color: white;
@@ -1943,7 +1940,7 @@ a.nav-link2:hover {
   color: white;
 }
 .dropdown-item:hover {
-  color: rgb(158, 150, 137);;
+  color: rgb(158, 150, 137);
 }
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -2012,11 +2009,31 @@ a.nav-link2:hover {
 
 .concept-item {
   /* border-radius: 40px; */
-   /* Modify this according to your need */
+  /* Modify this according to your need */
   overflow: hidden; /* Removing this will break the effects */
 }
 
-.textgold
-{
+.textgold {
   color: rgb(158, 150, 137);
 }
+
+.landingbg {
+  background-image: url(../img/landing-bg-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media only screen and (min-width: 100px) and (max-width: 680px) {
+  .landingbg {
+    background-image: url(../img/landing-bg-3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+@media only screen and (min-width: 681px) and (max-width: 900px) {
+  .landingbg {
+    background-image: url(../img/landing-bg-5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
