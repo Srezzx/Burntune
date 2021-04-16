@@ -23,10 +23,10 @@ router.get("/register", forwardAuthenticated, (req, res) => {
 router.post("/register", forwardAuthenticated, (req, res) => {
   console.log(req.body);
   console.log("*************************************");
-  const { username, email, age, instrument, password,phno } = req.body;
+  const { name,username, email, age, instrument, password,phno } = req.body;
   let errors = [];
 
-  if (!username || !email || !password || !age || !instrument || !phno) {
+  if (!username || !email || !password || !age || !instrument || !phno || !name) {
     errors.push({ msg: "Please enter all fields" });
   }
 
@@ -35,6 +35,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
     console.log("*************************************2");
     res.render("signup", {
       errors,
+      name,
       username,
       email,
       password,
@@ -50,6 +51,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
         errors.push({ msg: "User already exists" });
         res.render("signup", {
           errors,
+          name,
           username,
           email,
           age,
@@ -60,6 +62,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
       } else {
         console.log("*************************************5");
         const newUser = new User({
+          name,
           username,
           email,
           age,
@@ -67,6 +70,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
           password,
           phno,
         });
+        console.log(newUser);
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;

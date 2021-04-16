@@ -6,11 +6,28 @@ var nodemailer = require('nodemailer');
 // Load User model
 const User = require("../models/User");
 const Contact = require("../models/Contact");
+const { ensureAuthenticated } = require("../config/auth");
 require("dotenv").config();
 
 var emailfrom = process.env.EMAIL_FROM;
 var emailpassword = process.env.EMAIL_PASS;
 var emailto = process.env.EMAIL_TO;
+
+router.get("/profile",ensureAuthenticated, async (req,res) => {
+  var id = req.params.id;
+  User.findById(id, function(err, foundUser){
+    if(err)
+    {
+      console.log(err);
+    }
+    else
+    {
+      res.render("profile" , {profile:foundUser});
+    }
+  });
+});
+
+
 
 router.get("/contactus", (req, res) => {
   res.render("contactus");
@@ -73,5 +90,6 @@ router.post("/contactme", async (req, res) => {
     }
   });
 });
+
 
 module.exports = router;

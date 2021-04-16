@@ -1,5 +1,6 @@
 module.exports = {
     ensureAuthenticated: function(req, res, next) {
+      console.log(req.user);
       if (req.isAuthenticated()) {
         return next();
       }
@@ -7,13 +8,15 @@ module.exports = {
       res.redirect('/login');
     },
     ensureAuthenticatedAdmin: function(req, res, next) {
-      if (req.isAuthenticated() && req.user.username === 'burntuneofficial@gmail.com') {
+      console.log(req.user);
+      if (req.isAuthenticated() && req.user.username === 'burntune') {
         return next();
       }
       req.flash('error_msg', 'Please log in to view that resource');
       res.redirect('/login');
     },
     forwardAuthenticated: function(req, res, next) {
+      console.log(req.user);
       if (!req.isAuthenticated()) {
         return next();
       }

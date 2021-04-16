@@ -39,8 +39,10 @@ const db = process.env.MONGOURI;
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public/images"));
 
+//MODELS
 var User = require("./models/User");
 var Contact = require("./models/Contact");
+var Slot = require("./models/slot");
 
 //DATABASE CONNECTION
 mongoose.set("useNewUrlParser", true);
@@ -74,6 +76,8 @@ app.use(function (req, res, next) {
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/admin'));
+app.use('/', require('./routes/slot'));
+
 
 
 app.get("/", (req, res) => {
