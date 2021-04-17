@@ -13,7 +13,7 @@ var emailfrom = process.env.EMAIL_FROM;
 var emailpassword = process.env.EMAIL_PASS;
 var emailto = process.env.EMAIL_TO;
 
-router.get("/profile",ensureAuthenticated, async (req,res) => {
+router.get("/profile/:id",ensureAuthenticated, async (req,res) => {
   var id = req.params.id;
   User.findById(id, function(err, foundUser){
     if(err)

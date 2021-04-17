@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="fullscreen-bg">
+  <head>
+    <title>Burntune | Create-Slot</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/assets/vendor/linearicons/style.css" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700"
+      rel="stylesheet"
+    />
+    <!-- ICONS -->
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/assets/img/apple-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/img/favicon.png"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      input[type="date"],
+      input[type="time"],
+      input[type="text"],
+      input[type="number"] {
+        border: 1px solid gray;
+      }
+    </style>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+      <div class="vertical-align-wrap">
+        <div class="vertical-align-middle">
+          <div class="auth-box">
+            <div class="left">
+              <div class="content">
+                <div class="header">
+                  <!-- <div class="logo text-center"><img src="/assets/img/logo-dark.png" alt="Klorofil Logo"></div> -->
+                  <p class="lead">Create Slots</p>
+                </div>
+                <form
+                  id="addslotform"
+                  name="addslotform"
+                >
+                  <div class="form-group">
+                    <label for="date" style="float: left" class="control-label"
+                      >Date</label
+                    >
+                    <input
+                      type="date"
+                      name="date"
+                      class="form-control"
+                      id="date"
+                      value=""
+                      placeholder="Date"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="time_from"
+                      style="float: left"
+                      class="control-label"
+                      >From</label
+                    >
+                    <input
+                      type="time"
+                      name="time_from"
+                      class="form-control"
+                      id="time_from"
+                      value=""
+                      placeholder="Time from"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="time_to"
+                      style="float: left"
+                      class="control-label"
+                      >TO</label
+                    >
+                    <input
+                      type="time"
+                      name="time_to"
+                      class="form-control"
+                      id="time_to"
+                      value=""
+                      placeholder="Time To"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="instrument"
+                      style="float: left"
+                      class="control-label"
+                      >Instrument</label
+                    >
+                    <input
+                      type="text"
+                      name="instrument"
+                      class="form-control"
+                      id="instrument"
+                      value=""
+                      placeholder="Instrument"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="numpar"
+                      style="float: left"
+                      class="control-label"
+                      >Number of Participants</label
+                    >
+                    <input
+                      type="text"
+                      name="numpar"
+                      class="form-control"
+                      id="numpar"
+                      value=""
+                      placeholder="Number of participants"
+                    />
+                  </div>
+                  <div class="form-group clearfix">
+                    <label class="fancy-checkbox element-left">
+                      <input type="checkbox" />
+                    </label>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block"
+                  >
+                    Create
+                  </button>
+                  <div class="bottom"></div>
+                </form>
+              </div>
+            </div>
+            <div class="right">
+              <div class="overlay"></div>
+              <div class="content text">
+                <h1 class="heading">Create a slot in advance</h1>
+                <p></p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END WRAPPER -->
+    <script>
+      $("#addslotform").submit(function (event) {
+		alert("1");
+        event.preventDefault();
+		alert("2");
+        var form = document.addslotform;
+        var instrument = form.instrument.value;
+        var time_to = form.time_to.value;
+        var time_from = form.time_from.value;
+        var numpar = form.numpar.value;
+        var date = form.date.value;
+        var fields = { instrument, time_from, time_to, limit:numpar, date };
+		alert("3");
+        $.ajax({
+          type: "POST",
+          url: "/addslot",
+          data: fields,
+          success: function (data, status) {
+            if (data.status === "Success") {
+              alert(data.msg);
+              window.location = "/";
+            } else if (data.status === "Failed") {
+              alert(data.msg);
+            }
+          },
+          // vvv---- This is the new bit
+          error: function (jqXHR, textStatus, errorThrown) {
+            alert(
+              "Error, status = " +
+                textStatus +
+                ", " +
+                "error thrown: " +
+                errorThrown
+            );
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
