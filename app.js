@@ -52,6 +52,7 @@ mongoose
   .connect(db, {
     useNewUrlParser: true,
     useCreateIndex: true,
+    useFindAndModify:false,
   })
   .then(() => {
     console.log("Connected to DB!");

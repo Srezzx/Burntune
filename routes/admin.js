@@ -95,6 +95,37 @@ router.get("/addslot", async(req,res) =>{
   res.render("admin/addslot");
 });
 
+router.get("/slots/edit/:id", async(req,res) => {
+  Slot.findById(req.params.id , async (err,foundCourse) => {
+    if(err)
+    {
+      console.log(err);
+    }
+    else
+    {
+      res.render("admin/slots/editslot" , {Course:foundCourse});
+    }
+  });
+});
+
+router.post("/slots/edit/:id"  ,async(req,res) => {
+  console.log("UPDATE SLOT POST ROUTE HIT");
+  // console.log(req.body);
+  Slot.findByIdAndUpdate(req.params.id,req.body , function(err,modifiedCourse){
+     console.log("1");
+    if(err)
+    {
+      console.log("2");
+      console.log(err);
+    }
+    else
+    {
+      console.log(modifiedCourse);
+      console.log("3");
+      res.redirect("/slots");
+    }
+  });
+});
 
 
 //POST REQUESTS

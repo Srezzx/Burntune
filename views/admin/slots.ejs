@@ -136,6 +136,8 @@
 												<th>instrument</th>
 												<th>Students Cap.</th>
 												<th>Seats left</th>
+												<th>EDIT</th>
+												<th>DELETE</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -149,6 +151,8 @@
 												<td style="padding:4px;"><%= allslots[l-i].instrument %></td>
 												<td style="padding:4px;"><%= allslots[l-i].limit %></td>
 												<td style="padding:4px;"><%= allslots[l-i].limit - allslots[l-i].students.length %></td>
+												<td style="padding:4px;"><a class="btn btn-sm btn-warning" href="/slots/edit/<%= allslots[l-i]._id %>">EDIT</a></td>
+												<td style="padding:4px;"><a class="btn btn-sm btn-warning" href="/slots/delete/<%= allslots[l-i]._id %>">DELETE</a></td>
 											</tr>
 										<% } %>
 										</tbody>
@@ -172,6 +176,12 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
+	<script>
+		function editslot(x)
+		{
+			alert(x);
+		}
+	</script>
 	<script src="/assets/vendor/jquery/jquery.min.js"></script>
 	<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
