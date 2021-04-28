@@ -77,72 +77,140 @@ router.get("/slots", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      Slot.find({}, function (err,allslots){ 
-        if(err)
-        {
-          console.log(err);
-        }
-        else
-        {
-          res.render("admin/slots", { allusers: allusers, allslots:allslots });
-        }
-      });
+      Slot.find({})
+        .populate("students")
+        .exec(function (err, allslots) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("admin/slots", {
+              allusers: allusers,
+              allslots: allslots,
+            });
+          }
+        });
     }
   });
 });
 
-router.get("/addslot", async(req,res) =>{
+router.get("/addslot", async (req, res) => {
   res.render("admin/addslot");
 });
 
-router.get("/slots/edit/:id", async(req,res) => {
-  Slot.findById(req.params.id , async (err,foundCourse) => {
-    if(err)
-    {
+router.get("/slots/edit/:id", async (req, res) => {
+  Slot.findById(req.params.id, async (err, foundCourse) => {
+    if (err) {
       console.log(err);
-    }
-    else
-    {
-      res.render("admin/slots/editslot" , {Course:foundCourse});
+    } else {
+      res.render("admin/slots/editslot", { Course: foundCourse });
     }
   });
 });
 
-router.post("/slots/edit/:id"  ,async(req,res) => {
+router.post("/slots/edit/:id", async (req, res) => {
   console.log("UPDATE SLOT POST ROUTE HIT");
   // console.log(req.body);
-  Slot.findByIdAndUpdate(req.params.id,req.body , function(err,modifiedCourse){
-     console.log("1");
-    if(err)
-    {
-      console.log("2");
-      console.log(err);
+  Slot.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    function (err, modifiedCourse) {
+      console.log("1");
+      if (err) {
+        console.log("2");
+        console.log(err);
+      } else {
+        console.log(modifiedCourse);
+        console.log("3");
+        res.redirect("/slots");
+      }
     }
-    else
-    {
-      console.log(modifiedCourse);
-      console.log("3");
-      res.redirect("/slots");
-    }
-  });
+  );
 });
-
 
 //POST REQUESTS
 
-router.post("/addslot" , async(req,res) => {
+router.post("/addslot", async (req, res) => {
   console.log(req.body);
-  Slot.create(req.body , function(err,newlycreateSlot) {
-    if(err)
-    {
+  Slot.create(req.body, function (err, newlycreateSlot) {
+    if (err) {
       console.log(err);
       return res.json({ status: "Failed", msg: "Error creating slot" });
-    }
-    else
-    {
+    } else {
       return res.json({ status: "Success", msg: "Slot successfully created" });
     }
   });
-  
 });
+
+router.get("/scheduleslots/:id", async (req, res) => {
+  var id = req.params.id;
+  var choosenSlot = await Slot.findById(id).populate("students");
+  User.find({}, function (err, allusers) {
+    if (err) {
+      console.log(err);
+    } else {
+      Slot.find({})
+        .populate("students")
+        .exec(function (err, allslots) {
+          console.log(allslots);
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("admin/slots/scheduleslots", {
+              allusers: allusers,
+              allslots: allslots,
+              slot: choosenSlot,
+            });
+          }
+        });
+    }
+  });
+});
+
+//POST TO DELETE STUDENT FROM SLOT
+router.post("/slot/remove/student/:student_id/:slot_id", async (req, res) => {
+  console.log("POST DELETE STUDENT FROM SLOT ROUTE HIT");
+  console.log(req.params);
+  var slot_id = req.params.slot_id;
+  var student_id = req.params.student_id;
+  var Slotselected = await Slot.findById(slot_id);
+  var Studentselected = await User.findById(student_id);
+  const index = Slotselected.students.indexOf(student_id);
+  if (index > -1) {
+    Slotselected.students.splice(index, 1);
+  }
+  Slotselected.save();
+  console.log(Slotselected);
+  console.log(Studentselected);
+  res.redirect("/scheduleslots/" + slot_id);
+});
+
+//POST TO DELETE STUDENT FROM SLOT
+router.post("/slot/add/student/:slot_id", async (req, res) => {
+  console.log("POST ADD STUDENT TO SLOT ROUTE HIT");
+  console.log(req.params);
+  console.log(req.body);
+  var foundSlot = await Slot.findById(req.params.slot_id);
+  var foundStudent = await User.findById(req.body.stname_id);
+  console.log(foundSlot);
+  console.log(foundStudent);
+
+  foundSlot.students.push(foundStudent);
+  foundSlot.save();
+  res.redirect("/scheduleslots/" + req.params.slot_id);
+});
+
+router.post("/slots/delete/:slot_id", async(req,res) => {
+  console.log(req.params);
+  var id = req.params.slot_id;
+  Slot.findByIdAndDelete(id, async (err,deletedSlot)=> {
+    if(err)
+    {
+      console.log(err);
+    }
+    else
+    {
+      res.redirect("/slots");
+    }
+  });
+})
 module.exports = router;

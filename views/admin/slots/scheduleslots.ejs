@@ -19,6 +19,8 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon.png">
+	<script src="/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 </head>
 
 <body>
@@ -32,6 +34,32 @@
 		{
 			text-align: center;
 			color:rgb(158, 150, 137);
+		}
+		.slotdetailslabel
+		{
+			width:200px;
+			display: inline-block;
+		}
+		.slotdetailsvalue
+		{
+			display: inline-block;
+			
+		}
+		.slotdetails
+		{
+			margin-bottom: 20px;
+			padding:10px;
+			box-shadow: 0px 0px 6px 1px rgba(137,137,137,0.75);
+			-webkit-box-shadow: 0px 0px 6px 1px rgba(137,137,137,0.75);
+			-moz-box-shadow: 0px 0px 6px 1px rgba(137,137,137,0.75);
+		}
+		@media only screen and (min-width:150px) and (max-width:500px)
+		{
+			.slotdetailslabel
+		{
+			width:100px;
+			display: inline-block;
+		}
 		}
 	</style>
 	<!-- WRAPPER -->
@@ -129,7 +157,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">All Slots</h3>
+					<h3 class="page-title">Slot - <%= slot.date %> ( <%= slot.time_from %>  - <%= slot.time_to %>)</h3>
 					<div class="row">
 						<div class="col-md-12">
 							<!-- BORDERED TABLE -->
@@ -138,58 +166,91 @@
 									<!-- <h3 class="panel-title">Bordered Table</h3> -->
 								</div>
 								<div class="panel-body">
-									<table class="table table-bordered">
-										<thead >
-											<tr>
-												<th>SLNO</th>
-												<th>Date</th>
-												<th>Start</th>
-												<th>End</th>
-												<th>instrument</th>
-												<th>Students Cap.</th>
-												<th>Seats left</th>
-												<th>Schedule</th>
-												<!-- <th>EDIT</th>
-												<th>DELETE</th> -->
-											</tr>
-										</thead>
-										<tbody>
-											<%  var l = allslots.length;
-											for(var i=1;i<= l;i++){ %>
-											<tr>
-												<td style="padding:4px;"><a href="#"><%= l-i %></a></td>
-												<td style="padding:4px;"><%= allslots[l-i].date %></td>
-												<td style="padding:4px;"><%= allslots[l-i].time_from %></td>
-												<td style="padding:4px;"><%= allslots[l-i].time_to %></td>
-												<td style="padding:4px;"><%= allslots[l-i].instrument %></td>
-												<td style="padding:4px;"><%= allslots[l-i].limit %></td>
-												<td style="padding:4px;"><%= allslots[l-i].limit - allslots[l-i].students.length %></td>
-												<!-- <td style="padding:4px;"><a class="btn btn-sm btn-warning" href="/scheduleslots/<%= allslots[l-i]._id %>">Schedule</a></td>
-												<td style="padding:4px;"><a class="btn btn-sm btn-warning" href="/slots/edit/<%= allslots[l-i]._id %>">EDIT</a></td>
-												<td style="padding:4px;"><a class="btn btn-sm btn-warning" href="/slots/delete/<%= allslots[l-i]._id %>">DELETE</a></td> -->
-												<td style="padding:4px;">
-													<div class="btn-group" role="group" aria-label="Basic example">
-													<a class="btn btn-sm btn-primary" href="/scheduleslots/<%= allslots[l-i]._id %>">Schedule</a>
-													<a class="btn btn-sm btn-warning" href="/slots/edit/<%= allslots[l-i]._id %>">EDIT</a>
-													<form style="display:inline;margin:0;padding:0;"action="/slots/delete/<%= allslots[l-i]._id %>" method="POST">
-														<button class="btn btn-sm btn-danger" type="submit">DELETE</button>
+									<div  class="row justify-content-center">
+										<div class="col-sm-6">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">Date</label>
+												<div class="slotdetailsvalue"> <%= slot.date %></div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">Time</label>
+												<div class="slotdetailsvalue"><%= slot.time_from %> - <%= slot.time_to %></div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">Instructor</label>
+												<div class="slotdetailsvalue">Mr Daniel Hogg</div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">Instrument</label>
+												<div class="slotdetailsvalue"><%= slot.instrument %></div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">Students</label>
+												<div class="slotdetailsvalue"><%= slot.limit %></div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">Left</label>
+												<div class="slotdetailsvalue"><%= slot.limit - slot.students.length %></div>
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="slotdetails">
+												<label class="slotdetailslabel">List of Students - </label>
+												<div class="row d-flex justify-content-center">
+													<!-- <div style="padding-right:10rem;padding-left:4rem;"class="col-md-6">
+														<p style="line-height:100px;display:inline;" class="slotdetailslabel">Sriesh Agrawal(static)</p>
+														<span style="float:right"><a href="/slot/idk" class="btn btn-sm btn-danger">DELETE</a></span>
+													</div> -->
+													
+													<% if(slot.students.length > 0) {slot.students.forEach(function(student){ %>
+														<form action="/slot/remove/student/<%= student._id %>/<%= slot._id %>" method="POST">
+														<div style="padding-right:10rem;padding-left:4rem;" class="d-flex col-md-6">
+															<p style="line-height:40px;display:inline;" class="slotdetailslabel"><%= student.name %></p>
+															<span style="float:right"><button type="submit" class="btn btn-sm btn-danger">DELETE</button></span>
+														</div>
 													</form>
-												  </div>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="10">
-													<select style="color:rgb(158, 150, 137);background-color:rgb(24, 26, 27);"class="form-control input-sm">
-														<!-- <option value="students" selected disabled>Students</option> -->
-														<% allslots[l-i].students.forEach(function(student){ %>
-															<option value="<%= student.name %>"><%= student.name %></option>
-														<% }) %>
-													</select>
-												</td>
-											</tr>
+													<% });} %>
+												</div>
+											</div>
+										</div>
+										<% if(slot.students.length <= slot.limit){ %>
+											<div class="col-sm-12">
+												<div class="slotdetails">
+													<label class="slotdetailslabel">Add Student</label>
+													<form action ="/slot/add/student/<%= slot._id %>" method="POST"name="selectnew" class="selectnew">
+														<!-- <select name="mySelect2" id="mySelect2" class="form-control">
+															<% allusers.forEach(function(user){ %>
+															<option><%= user.name %></option>
+															<% }) %>
+															<option selected="selected">purple</option>
+															<option>Orange</option>
+															<option>Red</option>
+															<option>Yellow</option>
+														</select> -->
+														<!-- <input type="text" name="test" placeholder="test"> -->
+														<select style="width:100%;" class="js-example-basic-single" name="stname_id" class="form-control">
+															<option value="DIDNT SELECT" diabled selected="selected">Select an Option</option>
+															<% allusers.forEach(function(user){ %>
+																<option value="<%= user._id %>"><%= user.name %></option>
+																<% }) %>
+																
+														</select>
+														<button type="submit" style=" margin-top:10px;" class="btn btn-sm btn-success">Add</button>
+													</form>
+												</div>
+											</div>
 										<% } %>
-										</tbody>
-									</table>
+									</div>
 								</div>
 							</div>
 							<!-- END BORDERED TABLE -->
@@ -202,22 +263,63 @@
 		<!-- END MAIN -->
 		<div class="clearfix"></div>
 		<footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
-			</div>
+
 		</footer>
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
+	<script>
+		// function newstudent()
+		// {
+		// 	alert("HI");
+			
+			// var x = $('.js-example-basic-single').select2('data');
+			// document.getElementById("test").innerHTML = x;
+			// console.log(x);
+			// var form = document.formfill;
+			// console.log(form);
+			// var x = $('#mySelect2').select2('data');
+			// console.log(x);
+			// console.log($('#mySelect2').find(':selected'));
+
+			// var name  = form.stdname.value;
+			// var stdname = document.getElementById("stdname").value;
+			// console.log(stdname);
+
+			// if(name === "" || name === null)
+			// {
+			// 	alert("Enter Course Name");
+			// 	return false
+			// }
+			
+			// if(code === "" || code === null)
+			// {
+			// 	alert("Enter Course code");
+			// 	return false
+			// }
+			
+			// if(credits === "" || credits === null)
+			// {
+			// 	alert("Enter Course credits");
+			// 	return false
+			// }
+			// $.post("/courses/add-new-course", {name, code, description:generalinfo , credits, modules}, function (status, data) {
+			// 	alert(status.msg);
+			// 	window.location.reload();
+			// });
+		// }
+
+		
+	</script>
+
+
 	<script>
 		function editslot(x)
 		{
 			alert(x);
 		}
 	</script>
-	<script src="/assets/vendor/jquery/jquery.min.js"></script>
 	<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/assets/scripts/klorofil-common.js"></script>
 </body>
 
