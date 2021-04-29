@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="/assets/vendor/toastr/toastr.min.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -17,8 +18,8 @@
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png">
 	<script src="/assets/vendor/jquery/jquery.min.js"></script>
 	<script src="/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 </head>
@@ -66,8 +67,8 @@
 	<div id="wrapper">
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="index.html"><img src="/assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			<div style="margin:0;padding:30px;margin-bottom:5px;width:100px;height:80px;" class="brand">
+				<a href="index.html"><img src="/img/logo2.png" alt="Burntune Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -79,9 +80,9 @@
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 					</div>
 				</form>
-				<div class="navbar-btn navbar-btn-right">
+				<!-- <div class="navbar-btn navbar-btn-right">
 					<a class="btn btn-success update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-				</div>
+				</div> -->
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -129,8 +130,8 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/admin" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="/elements" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="/admin" ><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<!-- <li><a href="/elements" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
 						<li><a href="/charts" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 						<li><a href="/panels" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 						<li><a href="/notifications" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
@@ -146,7 +147,17 @@
 						</li>
 						<li><a href="/tables" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
 						<li><a href="/typography" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-						<li><a href="/icons" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
+						<li><a href="/icons" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li> -->
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Slots</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul class="nav">
+									<li><a href="/addslot" class="">Create</a></li>
+									<li class="active"><a href="/slots" class="">View all slots</a></li>
+									<!-- <li><a href="/scheduleslots" class="">Schedule slots</a></li> -->
+								</ul>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -158,6 +169,7 @@
 			<div class="main-content">
 				<div class="container-fluid">
 					<h3 class="page-title">Slot - <%= slot.date %> ( <%= slot.time_from %>  - <%= slot.time_to %>)</h3>
+					<h5 class="page-title"><%- include('../../errors') %></h3>
 					<div class="row">
 						<div class="col-md-12">
 							<!-- BORDERED TABLE -->
@@ -238,8 +250,11 @@
 															<option>Yellow</option>
 														</select> -->
 														<!-- <input type="text" name="test" placeholder="test"> -->
+														<!-- <div id="toastr-demo" class="panel">
+															<button type="button" class="btn btn-sm btn-danger btn-toastr" data-context="error" data-message="This is error info" data-position="top-right">Error Info</button>
+														</div> -->
 														<select style="width:100%;" class="js-example-basic-single" name="stname_id" class="form-control">
-															<option value="DIDNT SELECT" diabled selected="selected">Select an Option</option>
+															<option value="null" hidden diabled selected="selected">Select an Option</option>
 															<% allusers.forEach(function(user){ %>
 																<option value="<%= user._id %>"><%= user.name %></option>
 																<% }) %>
@@ -269,56 +284,12 @@
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script>
-		// function newstudent()
-		// {
-		// 	alert("HI");
-			
-			// var x = $('.js-example-basic-single').select2('data');
-			// document.getElementById("test").innerHTML = x;
-			// console.log(x);
-			// var form = document.formfill;
-			// console.log(form);
-			// var x = $('#mySelect2').select2('data');
-			// console.log(x);
-			// console.log($('#mySelect2').find(':selected'));
-
-			// var name  = form.stdname.value;
-			// var stdname = document.getElementById("stdname").value;
-			// console.log(stdname);
-
-			// if(name === "" || name === null)
-			// {
-			// 	alert("Enter Course Name");
-			// 	return false
-			// }
-			
-			// if(code === "" || code === null)
-			// {
-			// 	alert("Enter Course code");
-			// 	return false
-			// }
-			
-			// if(credits === "" || credits === null)
-			// {
-			// 	alert("Enter Course credits");
-			// 	return false
-			// }
-			// $.post("/courses/add-new-course", {name, code, description:generalinfo , credits, modules}, function (status, data) {
-			// 	alert(status.msg);
-			// 	window.location.reload();
-			// });
-		// }
-
-		
-	</script>
-
-
-	<script>
 		function editslot(x)
 		{
 			alert(x);
 		}
 	</script>
+	<script src="/assets/vendor/toastr/toastr.min.js"></script>
 	<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/assets/scripts/klorofil-common.js"></script>
 </body>

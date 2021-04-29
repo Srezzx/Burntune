@@ -20,14 +20,11 @@ const {
 router.get("/admin2", ensureAuthenticatedAdmin, async (req, res) => {});
 
 router.get("/admin", async (req, res) => {
-  User.find({}, function (err, allusers) {
-    if (err) {
-      console.log(err);
-    } else {
-      // console.log();
-      res.render("admin/index", { allusers: allusers });
-    }
-  });
+  var allusers = await User.find({}) ;
+  var allslots = await Slot.find({});
+  console.log(allusers);
+  console.log(allslots);
+  res.render("admin/index", { allusers: allusers, allslots:allslots});
 });
 
 router.get("/admin/allregs", async (req, res) => {
@@ -186,10 +183,28 @@ router.post("/slot/remove/student/:student_id/:slot_id", async (req, res) => {
 
 //POST TO DELETE STUDENT FROM SLOT
 router.post("/slot/add/student/:slot_id", async (req, res) => {
-  console.log("POST ADD STUDENT TO SLOT ROUTE HIT");
-  console.log(req.params);
-  console.log(req.body);
   var foundSlot = await Slot.findById(req.params.slot_id);
+  console.log(foundSlot.students.indexOf(req.body.stname_id));
+  console.log(foundSlot.students);
+  console.log(req.body.stname_id);
+  if(req.body.stname_id === "null") 
+  {
+    req.flash("error_msg", "Please select a valid option");
+    res.redirect("/scheduleslots/" + req.params.slot_id);
+  }
+  else if(foundSlot.students.length >= foundSlot.limit)
+  {
+    req.flash("error_msg", "Maximum limit has been reached");
+    res.redirect("/scheduleslots/" + req.params.slot_id);
+  }
+  else if(foundSlot.students.indexOf(req.body.stname_id) > -1)
+  {
+    req.flash("error_msg", "The Student is already present in the slot");
+    res.redirect("/scheduleslots/" + req.params.slot_id);
+  }
+  else
+  {
+  console.log("POST ADD STUDENT TO SLOT ROUTE HIT");
   var foundStudent = await User.findById(req.body.stname_id);
   console.log(foundSlot);
   console.log(foundStudent);
@@ -197,6 +212,7 @@ router.post("/slot/add/student/:slot_id", async (req, res) => {
   foundSlot.students.push(foundStudent);
   foundSlot.save();
   res.redirect("/scheduleslots/" + req.params.slot_id);
+  }
 });
 
 router.post("/slots/delete/:slot_id", async(req,res) => {
