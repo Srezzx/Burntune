@@ -85,6 +85,10 @@ app.get("/", (req, res) => {
   res.render("index.ejs" );
 });
 
+app.get("/scheduletest", async (req,res) => {
+  console.log(req.body);
+});
+
 
 
 
