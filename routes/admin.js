@@ -23,9 +23,10 @@ router.get("/admin2", ensureAuthenticatedAdmin, async (req, res) => {});
 router.get("/admin", async (req, res) => {
   var allusers = await User.find({});
   var allslots = await Slot.find({});
+  var history = await History.find({}).populate("student").populate("slot");
   console.log(allusers);
   console.log(allslots);
-  res.render("admin/index", { allusers: allusers, allslots: allslots });
+  res.render("admin/index", { allusers: allusers, allslots: allslots, history:history });
 });
 
 router.get("/admin/allregs", async (req, res) => {

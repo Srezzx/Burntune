@@ -23,7 +23,6 @@ router.get("/profile/:id",ensureAuthenticated, async (req,res) => {
      return entity;
     }
   });
-  console.log(history);
   User.findById(id, function(err, foundUser){
     if(err)
     {

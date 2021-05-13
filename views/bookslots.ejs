@@ -112,8 +112,8 @@
       class="fixed-top navbar navbar-expand-lg"
     >
       <a class="site-logo navbar-brand" href="/"
-        ><img src="/img/logo2.png" alt=""
-      /></a>
+        ><img src="/img/logo2.png" alt="" />
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -135,31 +135,13 @@
             >
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/book/slots">Book Slots</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/contactus">Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown link
-            </a>
-            <div
-              style="border: none; background-color: rgb(24, 26, 27)"
-              class="dropdown-menu fade-up"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
           </li>
         </ul>
         <ul style="margin-right: 40px" class="navbar-nav ml-auto">
@@ -175,7 +157,7 @@
           </li>
           <% } else { %>
           <li class="nav-item">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="/profile/<%= currentUser._id %>"
               ><i class="fa fa-user"></i> <%= currentUser.username %></a
             >
           </li>
