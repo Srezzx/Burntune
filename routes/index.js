@@ -6,6 +6,7 @@ var nodemailer = require('nodemailer');
 // Load User model
 const User = require("../models/User");
 const Contact = require("../models/Contact");
+const History = require("../models/History");
 const { ensureAuthenticated } = require("../config/auth");
 require("dotenv").config();
 
@@ -15,6 +16,14 @@ var emailto = process.env.EMAIL_TO;
 
 router.get("/profile/:id",ensureAuthenticated, async (req,res) => {
   var id = req.params.id;
+  var history = await History.find({}).populate("student").populate("slot");
+  history = history.filter(function(entity){
+    if(entity.student._id.toString() ===  req.user._id.toString())
+    {
+     return entity;
+    }
+  });
+  console.log(history);
   User.findById(id, function(err, foundUser){
     if(err)
     {
@@ -22,7 +31,7 @@ router.get("/profile/:id",ensureAuthenticated, async (req,res) => {
     }
     else
     {
-      res.render("profile" , {profile:foundUser});
+      res.render("profile" , {profile:foundUser, history:history});
     }
   });
 });
@@ -90,6 +99,28 @@ router.post("/contactme", async (req, res) => {
     }
   });
 });
+
+router.get("/test", async(req,res) => {
+  res.render("category");
+});
+
+
+router.get("/test2", async(req,res) => {
+  res.render("blog");
+});
+
+
+
+router.get("/test3", async(req,res) => {
+  res.render("artist");
+});
+
+
+router.get("/test4", async(req,res) => {
+  res.render("playlist");
+});
+
+
 
 
 module.exports = router;

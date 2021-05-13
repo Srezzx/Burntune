@@ -18,6 +18,7 @@ var UserSchema = new mongoose.Schema({
 	pinterest:String,
 	location:String,
 	pursuing:String,
+	slots:[{ type: mongoose.Schema.Types.ObjectId, ref: "Slot" }],
 
 });
 

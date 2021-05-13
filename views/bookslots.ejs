@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <title>BurnTune | Book Slots</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BurnTune - Learn music at anytime anywhere"
+    />
+    <meta name="keywords" content="music, singing, band, guitar" />
+    <meta name="author" content="Sriesh_Agrawal" />
+    <meta name="theme-color" content="#0A183D" />
+    <!-- FOR FACEBOOK -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BurnTune" />
+    <meta
+      property="og:description"
+      content="BurnTune - To teach the world how to make music and thrive "
+    />
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:url" content="https://burntune.herokuapp.com/" />
+    <meta
+      property="og:site_name"
+      content="BurnTune - To teach the world how to make music and thrive "
+    />
+
+    <!-- FOR FACEBOOK END -->
+    <!-- FOR TWITTER -->
+
+    <meta name="twitter:card" content="website" />
+    <meta name="twitter:site" content="BurnTune" />
+    <meta name="twitter:title" content="BurnTune" />
+    <meta
+      name="twitter:description"
+      content="BurnTune - To teach the world how to make music and thrive "
+    />
+    <meta name="twitter:creator" content="@Sriesh_Agrawal" />
+    <meta name="twitter:image" content="/img/favicon.png" />
+
+    <meta itemprop="name" content="Business Website" />
+    <meta
+      itemprop="description"
+      content="BurnTune - To teach the world how to make music and thrive"
+    />
+    <meta itemprop="image" content="#" />
+    <!-- FOR TWITTER END  -->
+
+    <link href="/img/favicon.png" rel="shortcut icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/slicknav.min.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script>
+      var counter = 0;
+    </script>
+  </head>
+  <body>
+    <style>
+      .slots {
+        display: inline-block;
+        border-radius: 5%;
+        width: fit-content;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-right: 10px;
+        margin-right: 10px;
+        padding-left: 10px;
+      }
+
+      @media only screen and (min-width: 300px) and (max-width: 700px) {
+        .dateh5 {
+          font-size: 100%;
+        }
+        .slots {
+          display: inline-block;
+          border-radius: 5%;
+          width: fit-content;
+          padding-top: 1px;
+          padding-bottom: 1px;
+          padding-right: 5px;
+          margin-right: 5px;
+          padding-left: 5px;
+          font-size: 10%;
+          margin-bottom: 10px;
+          width: 95px;
+        }
+        .slottext {
+          font-size: 700%;
+        }
+      }
+    </style>
+
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
+
+    <nav
+      style="background-color: rgb(24, 26, 27)"
+      class="fixed-top navbar navbar-expand-lg"
+    >
+      <a class="site-logo navbar-brand" href="/"
+        ><img src="/img/logo2.png" alt=""
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="dark-blue-text"
+          ><i style="color: #fc0254" class="fa fa-angle-double-down fa-2x"></i
+        ></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Dropdown link
+            </a>
+            <div
+              style="border: none; background-color: rgb(24, 26, 27)"
+              class="dropdown-menu fade-up"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <ul style="margin-right: 40px" class="navbar-nav ml-auto">
+          <% if(!currentUser){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: white" class="disp992none nav-link">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link2" href="/register">Register Now</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              ><i class="fa fa-user"></i> <%= currentUser.username %></a
+            >
+          </li>
+          <li class="nav-item">
+            <a style="color: white" class="disp992none nav-link">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link2" href="/logout">Logout</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+
+    <style>
+      body {
+        background-color: #212529;
+      }
+      /* .form-control {
+        max-width: 96%;
+      }
+      .btn-block {
+        max-width: 96%;
+      } */
+    </style>
+
+    <div style="margin-top: 100px" class="main">
+      <div class="container">
+        <h3 style="color: white">Book Slots for the next 7 days</h3>
+        <br />
+        <div class="container">
+          <!-- <%  %>  -->
+          <% dates.forEach(function(date){ %>
+          <div class="row">
+            <div class="col-4 col-lg-2">
+              <h5
+                class="dateh5"
+                style="display: inline; margin-top: 3rem; color: white"
+              >
+                <%= date %> :
+              </h5>
+            </div>
+            <div class="col-8 col-lg-10">
+              <% allslots.forEach(function(slot){ if(slot.date === date) { %> <%
+              if(slot.limit - slot.students.length > 0) { %>
+              <div style="background-color: #bae2ff" class="greenslot slots">
+                <p class="slottext" style="display: inline">
+                  <%= slot.limit - slot.students.length %> &nbsp<span
+                    style="display: none"
+                    >....</span
+                  >(<%= slot.time_from %>-<%= slot.time_to%>)<span
+                    style="display: none"
+                    >....</span
+                  ><span style="display: none"><%= slot._id %></span>
+                </p>
+              </div>
+              <% }else { %>
+              <div style="background-color: #ffa9a6" class="redslot slots">
+                <p class="slottext" style="display: inline">
+                  <%= slot.limit - slot.students.length %> :<span
+                    style="display: none"
+                    >....</span
+                  >
+                  (<%= slot.time_from %> -<%= slot.time_to%>)<span
+                    style="display: none"
+                    >....</span
+                  ><span style="display: none"><%= slot._id %></span>
+                </p>
+              </div>
+              <% } %> <% }}); %>
+            </div>
+          </div>
+
+          <br /><br />
+          <%})%>
+        </div>
+        <div
+          class="d-flex justify-content-center"
+        >
+          <div class="row justify-content-center">
+            <form id="slotselect">
+              <select
+                id="slot_id"
+                name="slot_id"
+                style="border-radius: 0; height: auto"
+                class="form-control"
+              >
+                <option selected default value="errorselectdefault">
+                  Select Slot
+                </option>
+                <% dates.forEach(function(date){
+                allslots.forEach(function(slot){ if(slot.date === date) {%>
+                <option value="<%= slot._id%>">
+                  (<%= slot.date %>) <%= slot.time_from %> - <%= slot.time_to%>
+                </option>
+                <% } }); }); %>
+              </select>
+              <div class="row justify-content-center">
+                <button
+                  style="border-radius: 0; height: auto"
+                  type="submit"
+                  class="mt-4 btn btn-info btn-md"
+                  id="submitbutton"
+                  name="submitbutton"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="row justify-content-center"></div>
+        </div>
+      </div>
+    </div>
+    <footer style="width: 100vw" class="mt-5 footer-section">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-xl-6 col-lg-7 order-lg-2">
+            <div class="row">
+              <div class="col-sm-4 d-flex justify-content-center">
+                <div class="footer-widget">
+                  <h2>About us</h2>
+                  <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Sol Music Blog</a></li>
+                    <li><a href="#">History</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-4 d-flex justify-content-center">
+                <div class="footer-widget">
+                  <h2>Products</h2>
+                  <ul>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Subscription</a></li>
+                    <li><a href="#">Custom Music</a></li>
+                    <li><a href="#">Footage</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-4 d-flex justify-content-center">
+                <div class="footer-widget">
+                  <h2>Playlists</h2>
+                  <ul>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-center col-xl-6 col-lg-5 order-lg-1"
+          >
+            <div class="social-links">
+              <a href="#"
+                ><i style="font-size: 1.7rem" class="fa fa-instagram"></i
+              ></a>
+              <a href="#"
+                ><i style="font-size: 1.7rem" class="fa fa-pinterest"></i
+              ></a>
+              <a href="#"
+                ><i style="font-size: 1.7rem" class="fa fa-facebook"></i
+              ></a>
+              <a href="#"
+                ><i style="font-size: 1.7rem" class="fa fa-twitter"></i
+              ></a>
+              <a href="#"
+                ><i style="font-size: 1.7rem" class="fa fa-youtube"></i
+              ></a>
+              <a href="#"
+                ><i style="font-size: 1.7rem" class="fa fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slicknav.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/mixitup.min.js"></script>
+    <script src="/js/main.js"></script>
+    <!-- <script>
+      const navbarcolorchange = document.querySelector('.navbarcolorchange')
+      window.addEventListener('scroll', () => {
+          let y =(window.pageYOffset)/3000;
+          console.log(y);
+          navbarcolorchange.style.backgroundColor = `rgba(47, 137, 252, ${y})`
+          })
+  </script> -->
+    <script>
+      // Add slideDown animation to Bootstrap dropdown when expanding.
+      $(".dropdown").on("show.bs.dropdown", function () {
+        $(this).find(".dropdown-menu").first().stop(true, true).slideDown();
+      });
+
+      // Add slideUp animation to Bootstrap dropdown when collapsing.
+      $(".dropdown").on("hide.bs.dropdown", function () {
+        $(this).find(".dropdown-menu").first().stop(true, true).slideUp();
+      });
+    </script>
+
+    <script>
+      $("#slotselect").submit(function (e) {
+        e.preventDefault();
+        var fields = {
+          slot_id: $("#slot_id").val(),
+        };
+        $.ajax({
+          type: "POST",
+          url: "/addslottostudent",
+          data: fields,
+          success: function (data, status) {
+            if (data.status === "Success") {
+              alert(data.msg);
+              window.location = "/book/slots";
+            } else if (data.status === "Failed") {
+              alert(data.msg);
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            alert(
+              "Error, status = " +
+                textStatus +
+                ", " +
+                "error thrown: " +
+                errorThrown
+            );
+          },
+        });
+      });
+    </script>
+
+    <script>
+      var counter = 0;
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+    ></script>
+    <script
+      defer
+      src="../../../static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"rayId":"634fd2744e5c18fc","si":10,"version":"2021.2.0"}'
+    ></script>
+  </body>
+</html>
