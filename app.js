@@ -87,6 +87,7 @@ app.get("/", (req, res) => {
 
 app.get("/scheduletest", async (req,res) => {
   console.log(req.body);
+  return res.json({msg:"Success"});
 });
 
 
