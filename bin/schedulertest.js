@@ -11,27 +11,27 @@
 //   });
 
 // console.log(date);
-var CronJob = require("cron").CronJob;
+// var CronJob = require("cron").CronJob;
+// var job = new CronJob(
+//   "1 * * * * *",
+//   function () {
+   
+//   },
+//   null,
+//   true,
+//   "America/Los_Angeles"
+// );
+// job.start();
 const axios = require("axios");
+console.log(new Date());
 
-var job = new CronJob(
-  "1 * * * * *",
-  function () {
-    console.log(new Date());
-    // send a POST request
-    axios
-      // .get("http://stormy-bastion-99734.herokuapp.com/atlas/app/places/hangouts")
-      .get("burntune.herokuapp.com/scheduletest")
-      .then((response) => {
-        console.log(response.data);
-        console.log(")))))))))))))))))))))))))))))))))))))))))))))))))))))))");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
-  null,
-  true,
-  "America/Los_Angeles"
-);
-job.start();
+  // .get("http://stormy-bastion-99734.herokuapp.com/atlas/app/places/hangouts")
+ axios.get("https://burntune.herokuapp.com/scheduletest")
+  .then((response) => {
+    console.log(response.data);
+    console.log(")))))))))))))))))))))))))))))))))))))))))))))))))))))))");
+  })
+  .catch((error) => {
+    console.log("*******************************************************");
+    console.log(error);
+  });
