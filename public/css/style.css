@@ -125,29 +125,30 @@ Commom elements
  -----------------------*/
 
 /* buttons */
-
+.hrsm-img
+{
+  display: none;
+}
 .site-btn {
   display: inline-block;
   border: none;
   font-size: 14px;
   font-weight: 500;
-  min-width: 195px;
-  padding: 23px 20px;
+  min-width: 145px;
+  padding: 10px 5px;
   border: 2px transparent solid;
   border-radius: 50px;
   text-transform: uppercase;
-  background: #fc0254;
-  color: white;
+  background: white;
+  color: black;
   line-height: normal;
   cursor: pointer;
   text-align: center;
-  transition: 0.2s;
 }
 .site-btn:hover {
-  border: 2px #fc0254 solid;
+  border: 2px black solid;
   background-color: transparent;
-  color: #fc0254;
-  transition: 0.2s;
+  color: black;
   font-weight: 500;
 }
 
@@ -193,7 +194,7 @@ Commom elements
   top: 0;
   left: 0;
   z-index: 999999;
-  background: #212529;
+  background: rgba(22, 22, 22, 0.9);
 }
 
 .loader {
@@ -274,12 +275,15 @@ Header section
     display: inline-block;
     padding: 0;
     /* padding: 44px 15px; */
-    margin: 0;
+    /* margin: 0; */
     width: 40px;
     height: 40px;
     /* padding-top: 8px; */
-    margin-right: 50px;
-    margin-left: 20px;
+    /* margin: auto; */
+  }
+  .logoburntunetext
+  {
+    margin-left:auto;
   }
 }
 @media (min-width: 440px) and (max-width: 767px) {
@@ -417,14 +421,10 @@ Header section
 Hero section
  ---------------------*/
 
-.hero-section {
-  overflow: hidden;
-  height: 100vh;
-}
 
 .hs-item {
-  height: 724px;
-  padding-bottom: 90px;
+  height: 100vh;
+  padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -471,6 +471,7 @@ Hero section
 .hs-item .hs-text {
   padding-top: 90px;
   max-width: 475px;
+  margin:auto;
 }
 
 .hr-img img {
@@ -1550,13 +1551,41 @@ Responsive
 /* Tablet :768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* .hr-img {
-    width:500px;
-    height:500px;
-  } */
-  .hr-img {
-    display: none;
+  .hr-img img {
+    min-width: 300px;
+    position: relative;
   }
+  /* .hrsm-img
+  {
+    display: block;
+    width: 80%;
+    height:80%;
+    margin:auto;
+  } */
+/* 
+  .site-btn {
+    display: inline-block;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 145px;
+    padding: 10px 5px;
+    border: 2px transparent solid;
+    border-radius: 50px;
+  } */
+
+  /* .hr-img  {
+    display:none;
+   } */
+   /* .hs-item .hs-text {
+    padding-top: 1px;
+    max-width: 475px;
+    text-align: center;
+    font-size: 70%;
+    margin:auto;
+  }
+   */
+
   .slicknav_menu {
     display: block;
     background: transparent;
@@ -1689,9 +1718,50 @@ Responsive
 
 /* Large Mobile :480px. */
 
-@media only screen and (max-width: 767px) {
-  .hr-img {
+@media only screen and (max-width: 768px) {
+/* .hs-item
+{
+  height:100vh;
+}
+.hs-text
+{
+  margin-top:20vh;
+} */
+  .site-btn {
+    display: inline-block;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 105px;
+    padding: 6px 0px;
+    border: 2px transparent solid;
+    border-radius: 50px;
+  }
+  .hrsm-img
+  {
+    display: block;
+    width: 100%;
+    height:100%;
+    margin:auto;
+  }
+  .smallnone
+  {
     display: none;
+  }
+  .hr-img  {
+   display:none;
+  }
+  .hs-item
+  {
+    height:100vh;
+    padding-top:30vh;
+  }
+  .hs-item .hs-text {
+    padding-top: 1px;
+    text-align: center;
+    max-width: 400px;
+    font-size: 50%;
+    margin:auto;
   }
   .slicknav_menu {
     display: block;
@@ -2019,11 +2089,15 @@ a.nav-link2:hover {
 }
 
 .landingbg {
-  background-image: url(../img/landing-bg-1.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background-image: url(../img/landing-bg-1.jpg); */
+  background: #000000;
+  background: -webkit-linear-gradient(top right, #000000, #464646);
+  background: -moz-linear-gradient(top right, #000000, #464646);
+  background: linear-gradient(to bottom left, #000000, #464646);
+  /* background-size: cover;
+  background-repeat: no-repeat; */
 }
-@media only screen and (min-width: 100px) and (max-width: 680px) {
+/* @media only screen and (min-width: 100px) and (max-width: 680px) {
   .landingbg {
     background-image: url(../img/landing-bg-3.jpg);
     background-size: cover;
@@ -2036,4 +2110,49 @@ a.nav-link2:hover {
     background-size: cover;
     background-repeat: no-repeat;
   }
+}
+ */
+
+.containerr {
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+  /* margin: 30px; */
+  margin-bottom:200px;
+}
+.box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+}
+.overlay {
+  z-index: 1;
+  margin-top: 25vh;
+  margin-left:20vw;
+  background-color: #faf7e8;
+  width:60vw;
+  border-radius:20px;
+}
+
+.overlayrow
+{
+  margin:0;
+  padding:0;
+  position:relative;
+  height:100%;
+}
+.overlayright
+{
+  margin-top:2rem;
+  padding-left:3rem;
+}
+.overlaylandingimg
+{
+  position: absolute;
+  bottom:0;
+  right:10px;
+  width:70%;
 }

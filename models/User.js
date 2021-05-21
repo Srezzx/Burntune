@@ -19,6 +19,7 @@ var UserSchema = new mongoose.Schema({
 	location:String,
 	pursuing:String,
 	slots:[{ type: mongoose.Schema.Types.ObjectId, ref: "Slot" }],
+	eligibleToBook:Number, // 0 if no, 1 if yes
 
 });
 
