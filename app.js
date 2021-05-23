@@ -4,11 +4,11 @@ var nodemailer = require("nodemailer");
 var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts");
-const {ensureAuthenticated,forwardAuthenticated } = require("./config/auth");
+const { ensureAuthenticated, forwardAuthenticated } = require("./config/auth");
 const flash = require("connect-flash");
-var bcrypt = require('bcryptjs');
+var bcrypt = require("bcryptjs");
 require("dotenv").config();
-const session = ("express-session");
+const session = "express-session";
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var app = express();
@@ -19,7 +19,6 @@ app.use(
     extended: true,
   })
 );
-
 
 // Connect flash
 app.use(flash());
@@ -52,7 +51,7 @@ mongoose
   .connect(db, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify:false,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("Connected to DB!");
@@ -67,34 +66,31 @@ app.use(passport.session());
 
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
   next();
 });
 
-
-
 //ROUTES
-app.use('/', require('./routes/auth'));
-app.use('/', require('./routes/index'));
-app.use('/', require('./routes/admin'));
-app.use('/', require('./routes/slot'));
-app.use("/", require('./routes/scheduler'));
-
-
+app.use("/", require("./routes/auth"));
+// app.use("/", require("./routes/index"));
+// app.use("/", require("./routes/admin"));
+// app.use("/", require("./routes/slot"));
+// app.use("/", require("./routes/scheduler"));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs" );
+  res.render("index.ejs");
 });
 
-app.get("/scheduletest", async (req,res) => {
-  console.log(req.body);
-  return res.json({msg:"Success"});
+app.get("/:random", (req, res) => {
+  res.redirect("/");
 });
 
-
-
+// app.get("/scheduletest", async (req,res) => {
+//   console.log(req.body);
+//   return res.json({msg:"Success"});
+// });
 
 app.listen(process.env.PORT || 3000, process.env.ID, function (req, res) {
   console.log("Server has started for Papaspot at PORT 3000");

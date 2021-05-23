@@ -531,6 +531,11 @@ Intro section
   display: inline-block;
 }
 
+.intro-section button {
+  position: absolute;
+  margin-top: 11rem;
+  margin-bottom: 2rem;
+}
 .intro-section a {
   position: absolute;
   margin-top: 11rem;
@@ -2149,6 +2154,9 @@ a.nav-link2:hover {
   .intro-section {
     height: 550px;
   }
+  .intro-section button {
+    margin-top: 15rem;
+  }
   .intro-section a {
     margin-top: 15rem;
   }
@@ -2176,6 +2184,9 @@ a.nav-link2:hover {
   }
   .intro-section {
     height: 600px;
+  }
+  .intro-section button {
+    margin-top: 18rem;
   }
   .intro-section a {
     margin-top: 18rem;
@@ -2257,7 +2268,7 @@ a.nav-link2:hover {
 
 .swiperimg {
   border-radius: 20px;
-  width: 400px;
+  width: 300px;
   height: 300px;
 }
 
