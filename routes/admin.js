@@ -109,17 +109,11 @@ router.get("/slots/edit/:id", async (req, res) => {
 router.post("/slots/edit/:id", async (req, res) => {
   console.log("UPDATE SLOT POST ROUTE HIT");
   // console.log(req.body);
-  Slot.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    function (err, modifiedCourse) {
-      console.log("1");
+  Slot.findByIdAndUpdate(req.params.id,req.body,function (err, modifiedCourse) {
       if (err) {
-        console.log("2");
         console.log(err);
       } else {
         console.log(modifiedCourse);
-        console.log("3");
         res.redirect("/slots");
       }
     }

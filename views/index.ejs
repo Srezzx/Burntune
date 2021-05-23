@@ -50,6 +50,10 @@
     <!-- FOR TWITTER END  -->
 
     <link href="img/favicon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Roboto+Condensed:ital@1&family=Roboto+Slab:wght@300&display=swap"
@@ -73,16 +77,18 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <style></style>
     <div id="preloder">
       <div class="loader"></div>
     </div>
     <!-- style="background-color: rgb(24, 26, 27)" -->
     <nav class="fixed-top navbar navbar-expand-lg">
       <a
-        style=" padding-right: 5px; margin-right: 0"
+        style="padding-right: 5px; margin-right: 0"
         class="site-logo navbar-brand"
         href="/"
-        ><img src="img/logo2.png" alt="" />
+      >
+        <img class="logoimg" src="img/logo2.png" alt="" />
       </a>
       <span
         style="
@@ -173,69 +179,115 @@
       </div>
     </nav>
 
-    <section class="hero-section">
-      <div
-        style="background-color: red"
-        class="landingbg hero-slider owl-carousel"
-      >
+    <section class="">
+      <div class="landingbg">
         <div class="landingbg hs-item">
           <div class="container">
-            <div class="row justify-content-center align-items-center">
+            <div class="mt-5 row justify-content-center align-items-center">
               <div class="col-xs-12 col-md-6">
                 <div class="hs-text">
                   <h3
                     style="color: white; font-size: 240%; font-weight: 50"
-                    class="robotofontheading"
+                    class="mb-5 robotofontheading"
                   >
                     Redefine learning and growth in music!!
                   </h3>
-                  <div class="hrsm-img">
-                    <img class="" src="img/hero-bg.png" alt="" />
+                  <div
+                    style="width: 60%; height: 60%; margin: auto"
+                    class="hrsm-img"
+                  >
+                    <img class="logoimg" src="img/hero-bg.png" alt="" />
                   </div>
-                  <a href="#" class="mt-3 site-btn">Join Us</a>
-                  <!-- <a href="#" class="site-btn sb-c2">Start free trial</a> -->
+                  <a href="#" class="mt-5 site-btn">Join Us</a>
                 </div>
-                <p
-                  style="font-weight: 100; color: white"
-                  class="mt-5 robotofont"
-                >
+
+                <p class="mb-5 robotofont">
                   <span class="smallnone"
                     >Voice | Rythm | Guitar | Piano | Production</span
                   >
                 </p>
               </div>
               <div class="col-xs-12 col-md-6">
-                <div class="hr-img">
-                  <img class="hr-img-img" src="img/hero-bg.png" alt="" />
+                <div
+                  style="width: 50%; height: 50%; margin: auto"
+                  class="hr-img"
+                >
+                  <img
+                    class="logoimg hr-img-img"
+                    src="img/hero-bg.png"
+                    alt=""
+                  />
                 </div>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="landingpart2cont d-flex justify-content-center col-6">
+                <div class="landingimg2cont">
+                  <img class="landingimg2" src="/img/landing-bg-3.1.jpg" />
+                </div>
+                <div class="landingimg2cont overlay2cont"></div>
+              </div>
+              <div class="col-6">hi</div>
+            </div> -->
+            <div class="section1_2 row">
+              <div
+                class="
+                  section1_2_textalign
+                  order-2 order-md-1
+                  col-xs-12 col-md-6
+                "
+              >
+                <h2>Philosophy of <span class="fontstyle1">Learning</span></h2>
+                <p>
+                  We believe tha learner must think like an artist but must not
+                  be afraid of making mistakes.
+                </p>
+                <div
+                  class="
+                    mt-5
+                    d-flex
+                    justify-content-center justify-content-md-start
+                  "
+                >
+                  <a href="#" class="mt-5 site-btn-inv">Read more</a>
+                </div>
+              </div>
+              <div class="order-1 order-md-2 overlaycont col-xs-12 col-md-6">
+                <div class="">
+                  <img class="overlaysize box" src="/img/landing-bg-3.1.jpg" />
+                </div>
+                <div class="overlaysize overlay"></div>
+              </div>
+            </div>
+
+            <div class="section1_2 row">
+              <div class="overlaycont col-xs-12 col-md-6">
+                <div class="">
+                  <img class="overlaysize box" src="/img/landing-bg-3.1.jpg" />
+                </div>
+                <div class="overlaysize overlay"></div>
+              </div>
+              <div class="section1_2_textalign col-xs-12 col-md-6">
+                <h2>The learning <span class="fontstyle1">experience</span></h2>
+                <p>
+                  The collaborative ecosystem of Burntune enables the teacher to
+                  guide learners by grouping them together to learn from each
+                  other
+                </p>
+                <div
+                  class="
+                    mt-5
+                    d-flex
+                    justify-content-center justify-content-md-start
+                  "
+                >
+                  <a href="#" class="mt-5 site-btn-inv">Read more</a>
+                </div>
+                <div class="layerspace"></div>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="hs-item">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="hs-text">
-                  <h2 style="color: white" class="robotofontheading">
-                    <span>Music</span> for everyone.
-                  </h2>
-                  <p class="textgold robotofont">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Quis ipsum suspendisse ultrices gravida.
-                  </p>
-                  <a href="#" class="site-btn">Register</a>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="hr-img">
-                  <img src="img/hero-bg.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </section>
 
@@ -244,33 +296,46 @@
         background-attachment: fixed;
         background-position: top ceter;
         background-size: cover;
-        background-image: url('img/pictures/bg2.jpg');
+        background-image: url('img/learnersstorybg.png');
       "
-      class="intro-section spad"
+      class="intro-section"
     >
-      <div class="container">
+      <div class="shade"></div>
+      <div class="intro-section-cont">
         <div class="row">
-          <div class="col-lg-6">
+          <div
+            class="
+              d-flex
+              justify-content-center justify-content-md-start
+              col-sm-6
+            "
+          >
             <div class="section-title">
-              <h2 style="color: rgb(24, 26, 27)" class="robotofontheading">
-                Live classes with expert instructors
-              </h2>
+              <h2 class="learnerstory">The Learner's <br />Story</h2>
+            </div>
+            <div class="intro-section-quotes">
+              <img src="/img/quotes.png" alt="Quotes" />
             </div>
           </div>
-          <div class="col-lg-6">
-            <p
-              style="font-weight: 600; text-align: justify"
-              class="textgold robotofont"
-            >
-              Sign yourself in right now for the live classes. With range of
-              plans that suit you, we got it all covered. Professional
-              instructors with take sessions with various instruments and the
-              crowd will be divided according to their proficiency level. Not
-              sure? SIGN yourself up for the free trial.
-            </p>
-            <button class="slidebut slide">Try it now</button>
+          <div
+            class="
+              d-flex
+              flex-row-reverse
+              justify-content-sm-around justify-content-center
+              col-sm-6
+            "
+          >
+            <img src="img/learnersimg.png" />
           </div>
         </div>
+        <p class="mt-4" style="font-weight: 100; width: 80%; color: white">
+          At first I didn’t understand how I was supposed to learn Music from
+          Burntune. But the longer I stayed, the more I learned, and the more I
+          enjoyed. Today, I still learn from Burntune, and also actively teach
+          and earn handsomely... Its a Wonderful place to be for a musican as
+          well as well as those who are learning.
+        </p>
+        <a class="site-btn-inv">Read more</a>
       </div>
     </section>
 
@@ -293,7 +358,7 @@
       </div>
     </section> -->
 
-    <section class="how-section spad set-bg" data-setbg="img/how-to-bg.jpg">
+    <!-- <section class="how-section spad set-bg" data-setbg="img/how-to-bg.jpg">
       <div class="container">
         <div class="section-title">
           <h2 class="text-white robotofontheading">How it works</h2>
@@ -354,62 +419,66 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="concept-section spad">
+    <section class="landingbg concept-section spad">
       <div class="container">
         <div style="text-align: center" class="d-flex align-items-center row">
-          <div class="col-lg-6">
+          <div class="col-12">
             <div class="section-title">
-              <h2 class="robotofontheading">Benefits</h2>
+              <h2 class="text-white">The Burntuner gallery</h2>
             </div>
           </div>
+          <div class="col-lg-6"></div>
           <div class="col-lg-6">
             <p
               style="padding-bottom: 2rem; text-align: justify"
               class="robotofont"
-            >
-              There is no age for learning and doing what you passionately love.
-              We understand that it is difficult to attend sessions on business
-              hours, therefore our slots which suits your convinience. Select
-              your favourite instrument and your proficiency level and get
-              started with the sessions. This is a unique opportuinity to learn
-              and get in touch with others having the same interests.
-            </p>
+            ></p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
+        <div class="smallnone row">
+          <div class="col-lg-4 col-sm-6">
             <div class="concept-item">
-              <img src="img/concept/1.jpg" alt="" />
-              <h5 style="padding-top: 15px" class="robotofontheading">
-                Creativity
+              <img class="swiperimg" src="/img/burntunergallery-1.png" alt="" />
+              <h5 style="padding-top: 15px" class="text-white">
+                Studio Celebration
               </h5>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <div class="concept-item">
-              <img src="img/concept/2.jpg" alt="" />
-              <h5 style="padding-top: 15px" class="robotofontheading">
-                Problem Solving
+              <img class="swiperimg" src="/img/burntunergallery-2.png" alt="" />
+              <h5 style="padding-top: 15px" class="text-white">
+                Studio Celebration
               </h5>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <div class="concept-item">
-              <img src="img/concept/3.jpg" alt="" />
-              <h5 style="padding-top: 15px" class="robotofontheading">
-                Collaboration
+              <img class="swiperimg" src="/img/burntunergallery-3.png" alt="" />
+              <h5 style="padding-top: 15px" class="text-white">
+                Studio Celebration
               </h5>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="concept-item">
-              <img src="img/concept/4.jpg" alt="" />
-              <h5 style="padding-top: 15px" class="robotofontheading">
-                Multi Tasking
-              </h5>
+        </div>
+        <div class="">
+          <div class="hrsm-img swiper-container mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="swiperimg" src="/img/burntunergallery-1.png" />
+              </div>
+              <div class="swiper-slide">
+                <img class="swiperimg" src="/img/burntunergallery-2.png" />
+              </div>
+              <div class="swiper-slide">
+                <img class="swiperimg" src="/img/burntunergallery-3.png" />
+              </div>
             </div>
+            <div style="color: white" class="swiper-button-next"></div>
+            <div style="color: white" class="swiper-button-prev"></div>
+            <div style="color: white" class="swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -459,78 +528,6 @@
                 >
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="premium-section spad">
-      <div class="container">
-        <div style="text-align: center" class="d-flex align-items-center row">
-          <div class="col-lg-12">
-            <div class="section-title">
-              <h2 style="color: rgb(24, 26, 27)" class="robotofontheading">
-                Testimonials
-              </h2>
-            </div>
-          </div>
-          <!-- <div class="col-lg-6">
-            <p class="robotofont">
-              Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-              gravida. Risus commodo viverra maecenas accumsan lacus vel
-              facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </div> -->
-        </div>
-        <div class="row d-flex justify-content-around">
-          <!-- <div class="testimonial col-lg-3 col-sm-6">
-            <div class="premium-item">
-              <img src="img/premium/1.jpg" alt="" />
-              <h4>Slots Flexibility</h4>
-              <p>Book your slots according to your convinience</p>
-            </div>
-          </div> -->
-          <div class="col-lg-3 col-sm-6">
-            <div class="premium-item">
-              <img src="img/premium/testimonial1.jpeg" alt="" />
-              <h4 style="color: rgb(24, 26, 27)">Sameeksha</h4>
-              <p style="text-align: justify" class="robotofont">
-                Everyone loves music , some try to make music , here’s the
-                platform for those who try to make music , burntune encourages
-                every musician ,vocalist , guitarist etc., to showcase their
-                talent to next level , here you can meet different musicians and
-                you can recommend whoever you know can do music , together as a
-                family we can achieve our music goals , you might find an other
-                musician in your locality through this platform and so on .....
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="premium-item">
-              <img class="mt-1" src="img/premium/testimonial2.1.jpeg" alt="" />
-              <h4 style="color: rgb(24, 26, 27)">Rutika</h4>
-              <p style="text-align: justify" class="robotofont">
-                I learned something new and had fun creating lyrics and music😊.
-                I socialized and learned from peeps who were already ahead of
-                the game.😊
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="premium-item">
-              <img src="img/premium/1.jpg" alt="" />
-              <h4 style="color: rgb(24, 26, 27)">Ravi Shukla</h4>
-              <p style="text-align: justify" class="robotofont">
-                Burntune is an amazing initiative and a great platform where
-                artists can uplift each other, gain experience and constructive
-                criticism. I would definitely recommend burntune to anyone who
-                is interested in making music because the community will
-                definitely take their music forward.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -602,13 +599,26 @@
         </div>
       </div>
     </footer>
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.slicknav.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/mixitup.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "flip",
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
     <!-- <script>
       const navbarcolorchange = document.querySelector('.navbarcolorchange')
       window.addEventListener('scroll', () => {
