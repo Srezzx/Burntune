@@ -673,7 +673,6 @@ Responsive
  -------------------*/
 
 .footer-section {
-  background: rgb(24, 26, 27);
   padding: 40px 0 40px;
 }
 
@@ -1482,6 +1481,12 @@ Responsive
 /* Medium screen : 992px. */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .swiperimg {
+    border-radius: 20px;
+    width: 25px;
+    height: 250px;
+  }
+
   .header-section {
     padding-left: 15px;
     padding-right: 20px;
@@ -2233,7 +2238,7 @@ a.nav-link2:hover {
 
 /* swiper slider */
 .swiper-container {
-  width: 400px;
+  width: 500px;
   height: 400px;
   padding: 50px;
 }
@@ -2252,14 +2257,16 @@ a.nav-link2:hover {
 
 .swiperimg {
   border-radius: 20px;
-  width: 300px;
+  width: 400px;
   height: 300px;
 }
 
 @media (max-width: 575px) {
   .swiper-container {
-    width: 350px;
+    width: 300px;
     height: 300px;
+    padding-left: 35px;
+    padding-right: 35px;
   }
 
   .swiper-slide {
@@ -2275,8 +2282,8 @@ a.nav-link2:hover {
   }
   .swiperimg {
     border-radius: 20px;
-    width: 340px;
-    height: 220px;
+    width: 320px;
+    height: 180px;
   }
 }
 
@@ -2295,4 +2302,82 @@ a.nav-link2:hover {
 }
 .layerspace {
   padding-bottom: 50px;
+}
+
+/* Collage */
+.collage {
+  position: relative;
+}
+.collage_circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  background-color: #f3a13b;
+  z-index: 1;
+}
+.collage_img {
+  position: absolute;
+  z-index: 99;
+}
+.sm_circle_1 {
+  position: absolute;
+  bottom: 2vw;
+  right: 4vw;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: #f3a13b;
+  z-index: 1;
+}
+
+.sm_circle_2 {
+  position: absolute;
+  bottom: 0;
+  right: 7vw;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  z-index: 1000;
+}
+.sm_circle_3 {
+  position: absolute;
+  bottom: 5vw;
+  right: 7vw;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  z-index: 1;
+}
+.container_big {
+  width: 85%;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .swiperimg {
+    border-radius: 20px;
+    width: 300px;
+    height: 250px;
+  }
+  .container_big {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .swiperimg {
+    border-radius: 20px;
+    width: 230px;
+    height: 200px;
+  }
+  .container_big {
+    width: 98%;
+    margin: 0 auto;
+  }
 }
