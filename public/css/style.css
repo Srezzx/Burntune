@@ -121,6 +121,9 @@ Commom elements
 .hrsm-img {
   display: none;
 }
+.smalldisp {
+  display: none;
+}
 
 .site-btn {
   display: inline-block;
@@ -1547,6 +1550,9 @@ Responsive
 /* Tablet :768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .smalldisp {
+    display: inline-block;
+  }
   .slicknav_menu {
     display: block;
     background: transparent;
@@ -1707,6 +1713,9 @@ Responsive
     width: 100%;
     height: 100%;
     margin: auto;
+  }
+  .smalldisp {
+    display: inline-block;
   }
   .smallnone {
     display: none;
