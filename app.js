@@ -75,7 +75,7 @@ app.use(function (req, res, next) {
 //ROUTES
 app.use("/", require("./routes/auth"));
 app.use("/", require("./routes/index"));
-// app.use("/", require("./routes/admin"));
+app.use("/", require("./routes/admin"));
 // app.use("/", require("./routes/slot"));
 // app.use("/", require("./routes/scheduler"));
 

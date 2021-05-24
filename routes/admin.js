@@ -20,16 +20,20 @@ const {
 
 router.get("/admin2", ensureAuthenticatedAdmin, async (req, res) => {});
 
-router.get("/admin", async (req, res) => {
+router.get("/admin", ensureAuthenticatedAdmin, async (req, res) => {
   var allusers = await User.find({});
   var allslots = await Slot.find({});
   var history = await History.find({}).populate("student").populate("slot");
   console.log(allusers);
   console.log(allslots);
-  res.render("admin/index", { allusers: allusers, allslots: allslots, history:history });
+  res.render("admin/index", {
+    allusers: allusers,
+    allslots: allslots,
+    history: history,
+  });
 });
 
-router.get("/admin/allregs", async (req, res) => {
+router.get("/admin/allregs", ensureAuthenticatedAdmin, async (req, res) => {
   User.find({}, function (err, allusers) {
     if (err) {
       console.log(err);
@@ -39,6 +43,7 @@ router.get("/admin/allregs", async (req, res) => {
     }
   });
 });
+
 router.get("/tables", async (req, res) => {
   res.render("admin/tables");
 });
@@ -71,7 +76,7 @@ router.get("/panels", async (req, res) => {
   res.render("admin/panels");
 });
 
-router.get("/slots", async (req, res) => {
+router.get("/slots", ensureAuthenticatedAdmin, async (req, res) => {
   User.find({}, function (err, allusers) {
     if (err) {
       console.log(err);
@@ -92,11 +97,11 @@ router.get("/slots", async (req, res) => {
   });
 });
 
-router.get("/addslot", async (req, res) => {
+router.get("/addslot", ensureAuthenticatedAdmin, async (req, res) => {
   res.render("admin/addslot");
 });
 
-router.get("/slots/edit/:id", async (req, res) => {
+router.get("/slots/edit/:id", ensureAuthenticatedAdmin, async (req, res) => {
   Slot.findById(req.params.id, async (err, foundCourse) => {
     if (err) {
       console.log(err);
@@ -106,10 +111,13 @@ router.get("/slots/edit/:id", async (req, res) => {
   });
 });
 
-router.post("/slots/edit/:id", async (req, res) => {
+router.post("/slots/edit/:id", ensureAuthenticatedAdmin, async (req, res) => {
   console.log("UPDATE SLOT POST ROUTE HIT");
   // console.log(req.body);
-  Slot.findByIdAndUpdate(req.params.id,req.body,function (err, modifiedCourse) {
+  Slot.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    function (err, modifiedCourse) {
       if (err) {
         console.log(err);
       } else {
@@ -198,17 +206,14 @@ router.post("/slot/add/student/:slot_id", async (req, res) => {
     console.log(foundSlot);
     console.log(foundStudent);
     var historyobj = {
-      student:foundStudent._id,
-      slot:foundSlot._id,
-      mode:"Admin",
-    }
-    History.create(historyobj, async(err,newlyCreated) => {
-      if(err)
-      {
+      student: foundStudent._id,
+      slot: foundSlot._id,
+      mode: "Admin",
+    };
+    History.create(historyobj, async (err, newlyCreated) => {
+      if (err) {
         console.log(err);
-      }
-      else
-      { 
+      } else {
         console.log(newlyCreated);
       }
     });
@@ -230,10 +235,15 @@ router.post("/slots/delete/:slot_id", async (req, res) => {
   });
 });
 
-router.get("/book/slots",ensureAuthenticated, async (req, res) => {
+router.get("/book/slots", ensureAuthenticated, async (req, res) => {
   console.log("**************************************");
   var date = new Date();
-  var dateformat = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getDate();
+  var dateformat =
+    date.getFullYear() +
+    "-" +
+    ("0" + (date.getMonth() + 1)).slice(-2) +
+    "-" +
+    date.getDate();
   console.log(dateformat);
   console.log(date);
   var allslots = await Slot.find({});
@@ -260,7 +270,7 @@ router.get("/book/slots",ensureAuthenticated, async (req, res) => {
       day1 - day2;
     }
   });
-  res.render("bookslots", { allslots: allslots, dates:dates });
+  res.render("bookslots", { allslots: allslots, dates: dates });
 });
 
 //STUDENT ROUTES
@@ -268,15 +278,16 @@ router.post("/addslottostudent", ensureAuthenticated, async (req, res) => {
   console.log("BOOK SLOT ROUTE HIT");
   const userid = req.user._id;
   var slotid = req.body.slot_id;
-  if(req.body.slot_id === "errorselectdefault")
-  {
-    return res.json({status:"Failed", msg:"Please select an option to proceed"});
+  if (req.body.slot_id === "errorselectdefault") {
+    return res.json({
+      status: "Failed",
+      msg: "Please select an option to proceed",
+    });
   }
-  var user = await User.findById({_id:userid});
-  var slot = await Slot.findById({_id:slotid}).populate("students");
-  if(user.slots.includes(slotid) || slot.students.includes(userid))
-  {
-    return res.json({status:"Failed", msg:"Slot has already been added"});
+  var user = await User.findById({ _id: userid });
+  var slot = await Slot.findById({ _id: slotid }).populate("students");
+  if (user.slots.includes(slotid) || slot.students.includes(userid)) {
+    return res.json({ status: "Failed", msg: "Slot has already been added" });
   }
 
   user.slots.push(slot._id);
@@ -284,21 +295,18 @@ router.post("/addslottostudent", ensureAuthenticated, async (req, res) => {
   user.save();
   slot.save();
   var historyobj = {
-    student:user._id,
-    slot:slot._id,
-    mode:"Self",
-  }
-  History.create(historyobj, async(err,newlyCreated) => {
-    if(err)
-    {
+    student: user._id,
+    slot: slot._id,
+    mode: "Self",
+  };
+  History.create(historyobj, async (err, newlyCreated) => {
+    if (err) {
       console.log(err);
-    }
-    else
-    { 
+    } else {
       console.log(newlyCreated);
     }
   });
-  return res.json({status:"Success", msg:"Successfully slot booked"});
+  return res.json({ status: "Success", msg: "Successfully slot booked" });
 });
 
 module.exports = router;

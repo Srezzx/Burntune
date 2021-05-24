@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
-var nodemailer = require('nodemailer');
+var nodemailer = require("nodemailer");
 require("dotenv").config();
 
 var emailfrom = process.env.EMAIL_FROM;
@@ -23,10 +23,18 @@ router.get("/register", forwardAuthenticated, (req, res) => {
 router.post("/register", forwardAuthenticated, (req, res) => {
   console.log(req.body);
   console.log("*************************************");
-  const { name,username, email, age, instrument, password,phno } = req.body;
+  const { name, username, email, age, instrument, password, phno } = req.body;
   let errors = [];
 
-  if (!username || !email || !password || !age || !instrument || !phno || !name) {
+  if (
+    !username ||
+    !email ||
+    !password ||
+    !age ||
+    !instrument ||
+    !phno ||
+    !name
+  ) {
     errors.push({ msg: "Please enter all fields" });
   }
 
@@ -41,7 +49,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
       password,
       instrument,
       age,
-      phno
+      phno,
     });
   } else {
     console.log("*************************************3");
@@ -57,11 +65,12 @@ router.post("/register", forwardAuthenticated, (req, res) => {
           age,
           password,
           instrument,
-          phno
+          phno,
         });
       } else {
         console.log("*************************************5");
         const newUser = new User({
+          joinDate: new Date(),
           name,
           username,
           email,
@@ -100,7 +109,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
                     req.body.email +
                     '</h2><h2 style="text-align: center;">' +
                     req.body.age +
-                    '</h2><h2 style="text-align: center;">'+
+                    '</h2><h2 style="text-align: center;">' +
                     req.body.phno +
                     '</h2><h4 style="text-align: center;">' +
                     req.body.instrument +
