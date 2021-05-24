@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
-var nodemailer = require('nodemailer');
+var nodemailer = require("nodemailer");
 // Load User model
 const User = require("../models/User");
 const Contact = require("../models/Contact");
@@ -14,28 +14,22 @@ var emailfrom = process.env.EMAIL_FROM;
 var emailpassword = process.env.EMAIL_PASS;
 var emailto = process.env.EMAIL_TO;
 
-router.get("/profile/:id",ensureAuthenticated, async (req,res) => {
+router.get("/profile/:id", ensureAuthenticated, async (req, res) => {
   var id = req.params.id;
   var history = await History.find({}).populate("student").populate("slot");
-  history = history.filter(function(entity){
-    if(entity.student._id.toString() ===  req.user._id.toString())
-    {
-     return entity;
+  history = history.filter(function (entity) {
+    if (entity.student._id.toString() === req.user._id.toString()) {
+      return entity;
     }
   });
-  User.findById(id, function(err, foundUser){
-    if(err)
-    {
+  User.findById(id, function (err, foundUser) {
+    if (err) {
       console.log(err);
-    }
-    else
-    {
-      res.render("profile" , {profile:foundUser, history:history});
+    } else {
+      res.render("profile", { profile: foundUser, history: history });
     }
   });
 });
-
-
 
 router.get("/contactus", (req, res) => {
   res.render("contactus");
@@ -99,27 +93,20 @@ router.post("/contactme", async (req, res) => {
   });
 });
 
-router.get("/test", async(req,res) => {
-  res.render("category");
-});
+// router.get("/test", async(req,res) => {
+//   res.render("category");
+// });
 
+// router.get("/test2", async(req,res) => {
+//   res.render("blog");
+// });
 
-router.get("/test2", async(req,res) => {
-  res.render("blog");
-});
+// router.get("/test3", async(req,res) => {
+//   res.render("artist");
+// });
 
-
-
-router.get("/test3", async(req,res) => {
-  res.render("artist");
-});
-
-
-router.get("/test4", async(req,res) => {
-  res.render("playlist");
-});
-
-
-
+// router.get("/test4", async(req,res) => {
+//   res.render("playlist");
+// });
 
 module.exports = router;
