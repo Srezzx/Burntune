@@ -2274,8 +2274,8 @@ a.nav-link2:hover {
 
 @media (max-width: 575px) {
   .swiper-container {
-    width: 400px;
-    height: 350px;
+    width: 100vw;
+    height: 450px;
     padding-left: 45px;
     padding-right: 45px;
   }
@@ -2293,15 +2293,15 @@ a.nav-link2:hover {
   }
   .swiperimg {
     border-radius: 20px;
-    width: 320px;
-    height: 280px;
+    width: 100vw;
+    height: 350px;
   }
 }
 
 @media (max-width: 470px) {
   .swiper-container {
-    width: 320px;
-    height: 320px;
+    width: 100vw;
+    height: 300px;
     margin: 0 auto;
     padding-left: 45px;
     padding-right: 45px;
@@ -2320,14 +2320,14 @@ a.nav-link2:hover {
   }
   .swiperimg {
     border-radius: 20px;
-    width: 320px;
-    height: 220px;
+    width: 100vw;
+    height: 230px;
   }
 }
 
 @media (max-width: 380px) {
   .swiper-container {
-    width: 300px;
+    width: 100vw;
     height: 300px;
     margin: 0 auto;
     padding-left: 45px;
@@ -2421,7 +2421,7 @@ a.nav-link2:hover {
   z-index: 1;
 }
 .container_big {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
