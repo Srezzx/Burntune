@@ -133,9 +133,9 @@ Commom elements
   min-width: 145px;
   padding: 10px 5px;
   border: 2px transparent solid;
-  border-radius: 10px;
+  border-radius: 20px;
   text-transform: uppercase;
-  background: white;
+  background: #faf6eb;
   color: black;
   line-height: normal;
   cursor: pointer;
@@ -143,9 +143,9 @@ Commom elements
   transition: 0.2s;
 }
 .site-btn:hover {
-  border: 2px white solid;
+  border: 2px #faf6eb solid;
   background-color: transparent;
-  color: white;
+  color: #faf6eb;
   font-weight: 500;
   transition: 0.2s;
 }
@@ -182,11 +182,11 @@ Commom elements
   font-weight: 500;
   min-width: 145px;
   padding: 6px 2px;
-  border: 2px white solid;
+  border: 2px #faf6eb solid;
   border-radius: 10px;
   text-transform: uppercase;
   background: transparent;
-  color: white;
+  color: #faf6eb;
   line-height: normal;
   cursor: pointer;
   text-align: center;
@@ -246,6 +246,43 @@ Commom elements
   height: 40px;
   position: absolute;
   top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 60px;
+  animation: loader 0.4s linear infinite;
+  -webkit-animation: loader 0.4s linear infinite;
+}
+
+.loader2 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 60px;
+  animation: loader 0.4s linear infinite;
+  -webkit-animation: loader 0.4s linear infinite;
+}
+.loader3 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 60px;
+  animation: loader 0.4s linear infinite;
+  -webkit-animation: loader 0.4s linear infinite;
+}
+.loader4 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40%;
   left: 50%;
   margin-top: -13px;
   margin-left: -13px;
@@ -1702,7 +1739,7 @@ Responsive
   .site-btn-inv {
     min-width: 105px;
     padding: 6px 0px;
-    border: 2px white solid;
+    border: 2px #faf6eb solid;
   }
   .site-btn-3 {
     min-width: 105px;
@@ -2050,10 +2087,16 @@ a.navbar-brand:hover {
 }
 
 .landingbg {
-  background: #000000;
+  /* background: #000000;
   background: -webkit-linear-gradient(top right, #000000, #464646);
   background: -moz-linear-gradient(top right, #000000, #464646);
-  background: linear-gradient(to bottom left, #000000, #464646);
+  background: linear-gradient(to bottom left, #000000, #464646); */
+  background: rgb(19, 21, 22);
+  background: linear-gradient(
+    230deg,
+    rgba(19, 21, 22, 1) 0%,
+    rgba(58, 66, 74, 1) 100%
+  );
 }
 
 .containerr {
@@ -2218,9 +2261,9 @@ a.navbar-brand:hover {
   opacity: 1;
   z-index: 1000;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px 0px rgba(218, 165, 32, 0.5);
-  -webkit-box-shadow: 1px 1px 1px 0px rgba(218, 165, 32, 0.5);
-  -moz-box-shadow: 1px 1px 1px 0px rgba(218, 165, 32, 0.5);
+  box-shadow: 1px 1px 1px 0px #f3a13b;
+  -webkit-box-shadow: 1px 1px 1px 0px #f3a13b;
+  -moz-box-shadow: 1px 1px 1px 0px #f3a13b;
 }
 .overlay {
   position: absolute;
@@ -2229,7 +2272,7 @@ a.navbar-brand:hover {
   z-index: 9;
   margin-left: 10px;
   margin-top: 10px;
-  border: 0.1px solid rgba(218, 165, 32, 0.5);
+  border: 0.1px solid #f3a13b;
   background: transparent;
   border-radius: 10px;
 }
@@ -2461,3 +2504,7 @@ a.navbar-brand:hover {
     margin: 0 auto;
   }
 }
+
+/* .modal-open {
+  padding-right: 0 !important;
+} */

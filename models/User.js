@@ -21,6 +21,9 @@ var UserSchema = new mongoose.Schema({
   location: String,
   pursuing: String,
   eligibleToBook: Number, // 0 if no, 1 if yes
+  //forget password
+  forgetPassTime: String,
+  forgetPassString: String,
 });
 
 UserSchema.plugin(passportLocalMongoose);
