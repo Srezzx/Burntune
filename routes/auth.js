@@ -25,7 +25,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
   console.log(req.body);
   const {
     name,
-    username,
+    username2: username,
     email,
     age,
     instrument,
@@ -33,7 +33,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
     phno: phone,
   } = req.body;
   let errors = [];
-  username = username.toLowerCase();
+  var username = username2.toLowerCase();
   if (!username || !email || !password || !name) {
     errors.push({ msg: "Please enter all fields" });
   }
