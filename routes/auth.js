@@ -181,6 +181,7 @@ router.post("/forgotpassword", async (req, res) => {
     foundUser[0].save();
     var email_route =
       "https://burntune.com/forgotpassword/" + foundUser[0]._id + "/" + hash;
+    console.log(email_route);
     var transporter = nodemailer.createTransport({
       service: "gmail",
       port: 465,
@@ -196,11 +197,11 @@ router.post("/forgotpassword", async (req, res) => {
       to: email,
       subject: "Burntune account Password reset ",
       html:
-        '<html lang="en"><body><h2 style="text-align: center;">Please click here to reset your burntune account password<br>' +
+        '<html lang="en"><body><p style="text-align: left;">Please click here to reset your burntune account password<br>' +
         '<a href="' +
         email_route +
         '">Here</a>' +
-        "</h2>",
+        '</p><br><br><p style="text-align:center">If you did not request for this request for this password change, please ignore this email</p></body></html>',
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
