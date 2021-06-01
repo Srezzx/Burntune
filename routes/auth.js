@@ -23,17 +23,9 @@ const { forwardAuthenticated } = require("../config/auth");
 
 router.post("/register", forwardAuthenticated, async (req, res) => {
   console.log(req.body);
-  const {
-    name,
-    username2: username,
-    email,
-    age,
-    instrument,
-    password,
-    phno: phone,
-  } = req.body;
+  const { name, username, email, age, instrument, password, phone } = req.body;
   let errors = [];
-  var usernamelower = username2.toLowerCase();
+  var usernamelower = username.toLowerCase();
   if (!usernamelower || !email || !password || !name) {
     errors.push({ msg: "Please enter all fields" });
   }
@@ -57,7 +49,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
           usernamelower,
           email,
           password,
-          phno,
+          phone,
         });
         console.log(newUser);
         bcrypt.genSalt(10, async (err, salt) => {
@@ -91,7 +83,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
                     '</h2><h2 style="text-align: center;">' +
                     req.body.age +
                     '</h2><h2 style="text-align: center;">' +
-                    req.body.phno +
+                    req.body.phone +
                     '</h2><h4 style="text-align: center;">' +
                     req.body.instrument +
                     "</h4></body></html>",
