@@ -21,7 +21,7 @@ const { forwardAuthenticated } = require("../config/auth");
 //   res.render("signup.ejs");
 // });
 
-router.post("/register", forwardAuthenticated, (req, res) => {
+router.post("/register", forwardAuthenticated, async (req, res) => {
   console.log(req.body);
   const { name, username, email, age, instrument, password, phno } = req.body;
   let errors = [];
@@ -34,8 +34,8 @@ router.post("/register", forwardAuthenticated, (req, res) => {
     console.log(errors);
     res.json({ status: "Error", msg: "Please enter all the nessesary fields" });
   } else {
-    var user2 = User.find({ username: username });
-    User.findOne({ email: email }).then((user) => {
+    var user2 = await User.findOne({ username: username });
+    await User.findOne({ email: email }).then(async (user) => {
       if (user || user2) {
         errors.push({ msg: "User already exists" });
         res.json({
@@ -43,7 +43,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
           msg: "User already exists, please try using another email or username",
         });
       } else {
-        const newUser = new User({
+        const newUser = await new User({
           joinDate: new Date(),
           name,
           username,
@@ -52,8 +52,8 @@ router.post("/register", forwardAuthenticated, (req, res) => {
           phno,
         });
         console.log(newUser);
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
+        bcrypt.genSalt(10, async (err, salt) => {
+          bcrypt.hash(newUser.password, salt, async (err, hash) => {
             if (err) throw err;
             newUser.password = hash;
             newUser
@@ -94,7 +94,7 @@ router.post("/register", forwardAuthenticated, (req, res) => {
                     console.log("Email sent: " + info.response);
                   }
                 });
-                const histobj = new History({
+                const histobj = await new History({
                   student: newUser._id,
                   mode: "Registration",
                   time: new Date(),
@@ -205,11 +205,11 @@ router.post("/forgotpassword", async (req, res) => {
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
+        console.log(error);
         return res.json({
           status: "Error",
           msg: "Could not send email, plese try again in sometime",
         });
-        console.log(error);
       } else {
         res.json({
           status: "Success",
