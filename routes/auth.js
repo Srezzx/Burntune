@@ -78,16 +78,15 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
                   subject: "Burntune: New Registration",
                   html:
                     '<html lang="en"><body><h2 style="text-align: center;">' +
-                    req.body.usernamelower +
+                    usernamelower +
                     '</h2><h2 style="text-align: center;">' +
                     req.body.email +
                     '</h2><h2 style="text-align: center;">' +
-                    req.body.age +
+                    name +
                     '</h2><h2 style="text-align: center;">' +
-                    req.body.phno +
-                    '</h2><h4 style="text-align: center;">' +
-                    req.body.instrument +
-                    "</h4></body></html>",
+                    phno +
+                    "</h2>" +
+                    "</body></html>",
                 };
                 console.log("reeached here - 1");
                 transporter.sendMail(mailOptions, function (error, info) {
