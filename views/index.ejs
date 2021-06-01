@@ -213,7 +213,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
             <div style="width: 85%; margin: 0 auto" class="signInModal_body">
-              <h4 style="color: #faf6eb; text-align: center" class="mt-5 mb-1">
+              <h4
+                style="
+                  font-family: Gilroy-Light;
+                  color: #faf6eb;
+                  text-align: center;
+                "
+                class="mt-5 mb-1"
+              >
                 Login!!!
               </h4>
               <p
@@ -521,7 +528,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="/"
+                <a style="font-family: Gilroy-Light" class="nav-link" href="/"
                   >Home <span class="sr-only">(current)</span></a
                 >
               </li>
@@ -560,6 +567,7 @@
               <% if(!currentUser){ %>
               <li class="nav-item">
                 <a
+                  style="font-family: Gilroy-Light"
                   class="text-white nav-link"
                   type="button"
                   data-toggle="modal"
@@ -576,12 +584,16 @@
                   type="button"
                   data-toggle="modal"
                   data-target="#signUpModal"
+                  style="font-family: Gilroy-Light"
                   >Register</a
                 >
               </li>
               <% } else { %>
               <li class="nav-item">
-                <a class="nav-link" href="/profile/<%= currentUser._id %>"
+                <a
+                  style="font-family: Gilroy-Light"
+                  class="nav-link"
+                  href="/profile/<%= currentUser._id %>"
                   ><i class="fa fa-user"></i> <%= currentUser.username %></a
                 >
               </li>
@@ -589,7 +601,12 @@
                 <a style="color: white" class="disp992none nav-link">|</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-link2" href="/logout">Logout</a>
+                <a
+                  style="font-family: Gilroy-Light"
+                  class="nav-link nav-link2"
+                  href="/logout"
+                  >Logout</a
+                >
               </li>
               <% } %>
             </ul>
@@ -603,13 +620,13 @@
                 <div class="hs-text">
                   <h3
                     style="
-                      font-family: Gilroy-Medium;
+                      font-family: Gilroy-Light;
                       font-size: 56px;
                       color: white;
                       font-size: 240%;
-                      font-weight: 50;
+                      font-weight: 100;
                     "
-                    class="mb-5 robotofontheading"
+                    class="mb-5"
                   >
                     Redefine learning and growth in music!!
                   </h3>
@@ -638,7 +655,7 @@
                   </h5>
                 </div>
                 <p class="hs-text mb-5 robotofont">
-                  <span class="smallnone"
+                  <span style="font-family: Gilroy-Light" class="smallnone"
                     >Ukulele| Guitar | Piano | Voice | Rhythm | Production
                   </span>
                 </p>
@@ -664,8 +681,16 @@
                   col-xs-12 col-md-6
                 "
               >
-                <h2>Philosophy of <span class="fontstyle1">Learning</span></h2>
-                <p>
+                <h2>
+                  <span style="font-family: Breathing-Regular"
+                    >Philosophy of </span
+                  ><span
+                    style="font-family: Breathing-Regular"
+                    class="fontstyle1"
+                    >Learning</span
+                  >
+                </h2>
+                <p style="font-family: Gilroy-Light">
                   We believe tha learner must think like an artist but must not
                   be afraid of making mistakes.
                 </p>
@@ -706,8 +731,16 @@
                 style="margin-top: 0; padding-top: 0%"
                 class="section1_2_textalign col-xs-12 col-md-6"
               >
-                <h2>The learning <span class="fontstyle1">experience</span></h2>
-                <p>
+                <h2>
+                  <span style="font-family: Breathing-Regular"
+                    >The Learning </span
+                  ><span
+                    style="font-family: Breathing-Regular"
+                    class="fontstyle1"
+                    >Experience</span
+                  >
+                </h2>
+                <p style="font-family: Gilroy-Light">
                   The collaborative ecosystem of Burntune enables the teacher to
                   guide learners by grouping them together to learn from each
                   other
@@ -776,7 +809,15 @@
             <img src="img/learnersimg.png" />
           </div>
         </div>
-        <p class="mt-4" style="font-weight: 100; width: 80%; color: white">
+        <p
+          class="mt-4"
+          style="
+            font-family: Gilroy-Light;
+
+            width: 80%;
+            color: white;
+          "
+        >
           At first I didn’t understand how I was supposed to learn Music from
           Burntune. But the longer I stayed, the more I learned, and the more I
           enjoyed. Today, I still learn from Burntune, and also actively teach
@@ -802,7 +843,10 @@
         <div style="text-align: center" class="d-flex align-items-center row">
           <div class="col-12 mb-5">
             <div class="section-title">
-              <h2 class="robotofontheading text-white">
+              <h2
+                style="font-weight: 100; font-family: Gilroy-Medium"
+                class="text-white"
+              >
                 The Burntuner gallery
               </h2>
             </div>
@@ -848,7 +892,7 @@
         </div>
         <div class="collage mt-5 pt-5 row">
           <img
-            style="z-index: 99; width: 85%; height: 85%; margin: 0 auto"
+            style="z-index: 99; width: 75%; height: 75%; margin: 0 auto"
             src="/img/collage.png"
             alt="Collage"
           />
@@ -857,6 +901,8 @@
           <div class="sm_circle_2"></div>
           <div class="sm_circle_3"></div>
         </div>
+      </div>
+      <div class="foot-bg">
         <div
           class="d-flex justify-content-center row"
           style="font-weight: 100; margin: 0 auto"
@@ -873,42 +919,43 @@
             >Join us</a
           >
         </div>
-      </div>
-      <footer class="footer-section">
-        <div class="footer-section-shade"></div>
-        <div class="container">
-          <div class="row d-flex align-items-center">
-            <div class="d-flex justify-content-center col-xl-12 col-lg-12">
-              <div class="social-links">
-                <a href="https://www.instagram.com/burntune"
-                  ><i style="font-size: 1.7rem" class="fa fa-instagram"></i
-                ></a>
-                <a href="https://www.joinclubhouse.com/@burntune"
-                  ><img
-                    style="margin-bottom: 8px; width: 25px; height: 25px"
-                    src="/img/clubhouse.png"
-                /></a>
-                <a href="https://www.facebook.com/burntunemusic"
-                  ><i style="font-size: 1.7rem" class="fa fa-facebook"></i
-                ></a>
-                <a href="https://www.twitter.com/burntune1"
-                  ><i style="font-size: 1.7rem" class="fa fa-twitter"></i
-                ></a>
-                <a
-                  href="https://www.youtube.com/channel/UCxPzr_ZIe9_7LNEw3ZWChbw"
-                  ><i style="font-size: 1.7rem" class="fa fa-youtube"></i
-                ></a>
-                <a href="https://www.linkedin.com/company/burntune"
-                  ><i style="font-size: 1.7rem" class="fa fa-linkedin"></i
-                ></a>
+
+        <footer class="footer-section">
+          <div class="footer-section-shade"></div>
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="d-flex justify-content-center col-xl-12 col-lg-12">
+                <div class="social-links">
+                  <a href="https://www.instagram.com/burntune"
+                    ><i style="font-size: 1.7rem" class="fa fa-instagram"></i
+                  ></a>
+                  <a href="https://www.joinclubhouse.com/@burntune"
+                    ><img
+                      style="margin-bottom: 8px; width: 25px; height: 25px"
+                      src="/img/clubhouse.png"
+                  /></a>
+                  <a href="https://www.facebook.com/burntunemusic"
+                    ><i style="font-size: 1.7rem" class="fa fa-facebook"></i
+                  ></a>
+                  <a href="https://www.twitter.com/burntune1"
+                    ><i style="font-size: 1.7rem" class="fa fa-twitter"></i
+                  ></a>
+                  <a
+                    href="https://www.youtube.com/channel/UCxPzr_ZIe9_7LNEw3ZWChbw"
+                    ><i style="font-size: 1.7rem" class="fa fa-youtube"></i
+                  ></a>
+                  <a href="https://www.linkedin.com/company/burntune"
+                    ><i style="font-size: 1.7rem" class="fa fa-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center col-xl-12 col-lg-12">
+                <p class="mt-3 text-white">© Burntune Copyright 2021</p>
               </div>
             </div>
-            <div class="d-flex justify-content-center col-xl-12 col-lg-12">
-              <p class="mt-3 text-white">© Burntune Copyright 2021</p>
-            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </section>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

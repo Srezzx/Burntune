@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <title>BurnTune | Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BurnTune - Learn music at anytime anywhere"
+    />
+    <meta name="keywords" content="music, singing, band, guitar" />
+    <meta name="author" content="Sriesh_Agrawal" />
+    <meta name="theme-color" content="#0A183D" />
+    <!-- FOR FACEBOOK -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BurnTune" />
+    <meta
+      property="og:description"
+      content="BurnTune - To teach the world how to make music and thrive "
+    />
+    <meta property="og:image" content="img/favicon.png" />
+    <meta property="og:url" content="https://burntune.herokuapp.com/" />
+    <meta
+      property="og:site_name"
+      content="BurnTune - To teach the world how to make music and thrive "
+    />
+
+    <!-- FOR FACEBOOK END -->
+    <!-- FOR TWITTER -->
+
+    <meta name="twitter:card" content="website" />
+    <meta name="twitter:site" content="BurnTune" />
+    <meta name="twitter:title" content="BurnTune" />
+    <meta
+      name="twitter:description"
+      content="BurnTune - To teach the world how to make music and thrive "
+    />
+    <meta name="twitter:creator" content="@Sriesh_Agrawal" />
+    <meta name="twitter:image" content="img/favicon.png" />
+
+    <meta itemprop="name" content="Business Website" />
+    <meta
+      itemprop="description"
+      content="BurnTune - To teach the world how to make music and thrive"
+    />
+    <meta itemprop="image" content="#" />
+    <!-- FOR TWITTER END  -->
+
+    <link href="img/favicon.png" rel="shortcut icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/slicknav.min.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
+
+    <style>
+      .form-control {
+        max-width: 96%;
+      }
+      .btn-block {
+        max-width: 96%;
+      }
+    </style>
+    <p id="userid" style="display: none" class="userid"><%= user._id %></p>
+    <p id="pasttime" style="display: none"><%= past_Date %></p>
+    <div class="landingbg content">
+      <nav class="navbar navbar-expand-lg">
+        <a class="site-logo navbar-brand" href="/"
+          ><img class="logoimg" src="/img/logo2.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="dark-blue-text"
+            ><img src="/img/Hamburger.png" alt="ham"
+          /></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a style="text-decoration: none" class="nav-link" href="/"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="/contactus">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Dropdown link
+              </a>
+              <div
+                style="border: none; background-color: rgb(24, 26, 27)"
+                class="dropdown-menu fade-up"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li> -->
+          </ul>
+          <ul style="margin-right: 40px" class="navbar-nav ml-auto">
+            <% if(!currentUser){ %>
+            <li class="nav-item">
+              <a style="text-decoration: none" class="nav-link" href="/login"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a style="color: white" class="disp992none nav-link">|</a>
+            </li>
+            <li class="nav-item">
+              <a
+                style="text-decoration: none"
+                class="nav-link nav-link2"
+                href="/register"
+                >Register Now</a
+              >
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+              <a style="text-decoration: none" class="nav-link" href="#"
+                ><i class="fa fa-user"></i> <%= currentUser.username %></a
+              >
+            </li>
+            <li class="nav-item">
+              <a style="color: white" class="disp992none nav-link">|</a>
+            </li>
+            <li class="nav-item">
+              <a
+                style="text-decoration: none"
+                class="nav-link nav-link2"
+                href="/logout"
+                >Logout</a
+              >
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </nav>
+      <div
+        style="position: fixed; top: 50%; left: 50%; display: none"
+        id="loader3"
+        class="loader3"
+      ></div>
+      <div class="mt-5 pt-5container">
+        <div class="mt-5 pt-5 content">
+          <h3 style="color: white; text-align: center">Reset Password</h3>
+          <p style="color: gray; text-align: center">
+            We got you at every step!, simply enter the new password and reset
+            it!!!
+          </p>
+          <p style="text-align: center" id="alertmsg"></p>
+          <form
+            class="row d-flex justify-content-center"
+            id="forgotpassformfinal"
+            name="forgotpassformfinal"
+          >
+            <div class="col-12 d-flex justify-content-center">
+              <label style="text-align: left; color: white">Password</label>
+            </div>
+            <div class="mb-5 col-12 d-flex justify-content-center">
+              <input
+                style="max-width: 50%; margin: 0 auto"
+                class="form-control"
+                type="password"
+                name="password1"
+                id="password1"
+                placeholder="Enter password"
+              />
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <label style="text-align: left; color: white"
+                >Confirm Password</label
+              >
+            </div>
+            <div class="col-12 mb-5 d-flex justify-content-center">
+              <input
+                style="max-width: 50%; margin: 0 auto"
+                class="form-control"
+                type="password"
+                name="confirmpassword"
+                id="confirmpassword"
+                placeholder=" Confirm your password"
+              />
+            </div>
+            <button type="submit" class="site-btn-inv">Submit</button>
+          </form>
+        </div>
+      </div>
+      <footer class="footer-section">
+        <div class="footer-section-shade"></div>
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <!-- <div class="col-xl-6 col-lg-7 order-lg-2">
+              <div class="row">
+                <div class="col-sm-4 d-flex justify-content-center">
+                  <div class="footer-widget">
+                    <h2>About us</h2>
+                    <ul>
+                      <li><a href="#">Our Story</a></li>
+                      <li><a href="#">Sol Music Blog</a></li>
+                      <li><a href="#">History</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-4 d-flex justify-content-center">
+                  <div class="footer-widget">
+                    <h2>Products</h2>
+                    <ul>
+                      <li><a href="#">Music</a></li>
+                      <li><a href="#">Subscription</a></li>
+                      <li><a href="#">Custom Music</a></li>
+                      <li><a href="#">Footage</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-4 d-flex justify-content-center">
+                  <div class="footer-widget">
+                    <h2>Playlists</h2>
+                    <ul>
+                      <li><a href="#">Newsletter</a></li>
+                      <li><a href="#">Careers</a></li>
+                      <li><a href="#">Press</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div
+              class="
+                d-flex
+                justify-content-center
+                col-xl-12 col-lg-12
+                order-lg-1
+              "
+            >
+              <p class="mt-3 mb-3 text-white">© Burntune Copyright 2021</p>
+            </div>
+            <div
+              class="
+                d-flex
+                justify-content-center
+                col-xl-12 col-lg-12
+                order-lg-1
+              "
+            >
+              <div class="social-links">
+                <a href="https://www.instagram.com/burntune"
+                  ><i style="font-size: 1.7rem" class="fa fa-instagram"></i
+                ></a>
+                <a href="https://www.joinclubhouse.com/@burntune"
+                  ><img
+                    style="margin-bottom: 8px; width: 25px; height: 25px"
+                    src="/img/clubhouse.png"
+                /></a>
+                <a href="https://www.facebook.com/burntunemusic"
+                  ><i style="font-size: 1.7rem" class="fa fa-facebook"></i
+                ></a>
+                <a href="https://www.twitter.com/burntune1"
+                  ><i style="font-size: 1.7rem" class="fa fa-twitter"></i
+                ></a>
+                <a
+                  href="https://www.youtube.com/channel/UCxPzr_ZIe9_7LNEw3ZWChbw"
+                  ><i style="font-size: 1.7rem" class="fa fa-youtube"></i
+                ></a>
+                <a href="https://www.linkedin.com/company/burntune"
+                  ><i style="font-size: 1.7rem" class="fa fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slicknav.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/mixitup.min.js"></script>
+    <script src="/js/main.js"></script>
+    <!-- <script>
+      const navbarcolorchange = document.querySelector('.navbarcolorchange')
+      window.addEventListener('scroll', () => {
+          let y =(window.pageYOffset)/3000;
+          console.log(y);
+          navbarcolorchange.style.backgroundColor = `rgba(47, 137, 252, ${y})`
+          })
+  </script> -->
+    <script>
+      // Add slideDown animation to Bootstrap dropdown when expanding.
+      $(".dropdown").on("show.bs.dropdown", function () {
+        $(this).find(".dropdown-menu").first().stop(true, true).slideDown();
+      });
+
+      // Add slideUp animation to Bootstrap dropdown when collapsing.
+      $(".dropdown").on("hide.bs.dropdown", function () {
+        $(this).find(".dropdown-menu").first().stop(true, true).slideUp();
+      });
+    </script>
+
+    <script>
+      $("#forgotpassformfinal").submit(function (event) {
+        var current_Date = new Date().getTime();
+        var past_Date = document.getElementById("pasttime").innerHTML;
+        past_Date = new Date(past_Date).getTime();
+        var diff = (current_Date - past_Date) / 60000;
+        event.preventDefault();
+        $("#loader5").css("display", "block");
+        var password = $("#forgotpassformfinal")
+          .find('input[name="password1"]')
+          .val();
+        var confirmpassword = $("#forgotpassformfinal")
+          .find('input[name="confirmpassword"]')
+          .val();
+        var user_id = document.getElementById("userid").innerHTML;
+        console.log("confirm pass = " + confirmpassword);
+        var fields = { password, confirmpassword, user_id };
+        if (password === confirmpassword) {
+          if (password.length > 6) {
+            if (diff < 30) {
+              $.ajax({
+                url: "/forgotpassword/final",
+                type: "POST",
+                data: fields,
+                success: function (result) {
+                  console.log(result);
+                  if (result.status === "Success") {
+                    $("#alertmsg")[0].innerHTML = result.msg;
+                    $("#alertmsg").css("color", "green");
+                    $("#alertmsg").css("font-size", "110%");
+                    $("#loader5").css("display", "none");
+                    setTimeout(function () {
+                      window.location = "/";
+                    }, 1000);
+                  } else if (result.status === "Error") {
+                    $("#alertmsg")[0].innerHTML = result.msg;
+                    $("#alertmsg").css("color", "red");
+                    $("#alertmsg").css("font-size", "110%");
+                    $("#loader5").css("display", "none");
+                  }
+                },
+                error: function (err) {
+                  // $("#login_modal_p")[0].innerHTML =
+                  //   "An error has occoured, please try again in sometime";
+                  // $("#login_modal_p").css("color", "red");
+                  // $("#login_modal_p").css("font-size", "110%");
+                  // $("#loader5").css("display", "none");
+                },
+              });
+            } else {
+              $("#alertmsg")[0].innerHTML =
+                " Password reset timeout, please apply again";
+              $("#alertmsg").css("color", "red");
+              setTimeout(() => {
+                window.location = "/";
+              }, 1000);
+            }
+          } else {
+            $("#alertmsg")[0].innerHTML =
+              " Password should be of more than 6 characters";
+            $("#alertmsg").css("color", "red");
+          }
+        } else {
+          $("#alertmsg")[0].innerHTML = " Passwords don't match";
+          $("#alertmsg").css("color", "red");
+        }
+      });
+    </script>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+    ></script>
+    <script
+      defer
+      src="../../../static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"rayId":"634fd2744e5c18fc","si":10,"version":"2021.2.0"}'
+    ></script>
+  </body>
+</html>

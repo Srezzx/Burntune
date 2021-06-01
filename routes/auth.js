@@ -34,12 +34,13 @@ router.post("/register", forwardAuthenticated, (req, res) => {
     console.log(errors);
     res.json({ status: "Error", msg: "Please enter all the nessesary fields" });
   } else {
+    var user2 = User.find({ username: username });
     User.findOne({ email: email }).then((user) => {
-      if (user) {
+      if (user || user2) {
         errors.push({ msg: "User already exists" });
         res.json({
           status: "Error",
-          msg: "User already exists, please try using another email",
+          msg: "User already exists, please try using another email or username",
         });
       } else {
         const newUser = new User({
@@ -225,4 +226,49 @@ router.post("/forgotpassword", async (req, res) => {
   }
 });
 
+router.get("/forgotpassword/:user_id/:unique_id", async (req, res) => {
+  var user = await User.findById(req.params.user_id);
+  var current_Date = new Date();
+  var past_Date = new Date(user.forgetPassTime);
+  var minutes_diff = (current_Date.getTime() - past_Date.getTime()) / 60000;
+  console.log(minutes_diff);
+
+  if (user && user.forgetPassString) {
+    if (user.forgetPassString === req.params.unique_id && minutes_diff <= 30) {
+      res.render("forgotpass", {
+        user,
+        minutes_diff,
+        past_Date,
+      });
+    } else {
+      res.redirect("/");
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.post("/forgotpassword/final", async (req, res) => {
+  console.log("Forgot Password final route");
+  console.log(req.body);
+  var user_id = req.body.user_id;
+  var user = await User.findById(user_id);
+  console.log(user);
+
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(req.body.password, salt, (err, hash) => {
+      if (err) {
+        console.log(err);
+        throw err;
+      }
+      newP = hash;
+      console.log(user.password);
+      user.password = newP;
+      user.save();
+      console.log(user);
+      console.log(newP);
+    });
+  });
+  return res.json({ status: "Success", msg: "Password successfully changed" });
+});
 module.exports = router;

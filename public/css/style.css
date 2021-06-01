@@ -1723,14 +1723,11 @@ Responsive
 /* Large Mobile :480px. */
 
 @media only screen and (max-width: 768px) {
-  /* .hs-item
-{
-  height:100vh;
-}
-.hs-text
-{
-  margin-top:20vh;
-} */
+  .foot-bg {
+    /* background-image: url("/img/footer_bg.png"); */
+    background-repeat: no-repeat;
+    background-size: 100vw 10vh;
+  }
   .site-btn {
     min-width: 105px;
     padding: 6px 0px;
@@ -2289,20 +2286,16 @@ a.navbar-brand:hover {
   top: 0;
   left: 0;
 }
-
+.foot-bg {
+  /* background-image: url("/img/footer_bg.png"); */
+  background-repeat: no-repeat;
+  background-size: 100vw 55vh;
+}
 .learnerstory {
   color: white;
   font-weight: 100;
   border-left: 5px solid white;
   padding-left: 20px;
-}
-
-@media (max-width: 575px) {
-  .learnerstory {
-    border: none;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
 }
 
 /* swiper slider */
@@ -2331,6 +2324,12 @@ a.navbar-brand:hover {
 }
 
 @media (max-width: 575px) {
+  .learnerstory {
+    border: none;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
   .swiper-container {
     width: 100vw;
     height: 450px;
@@ -2433,12 +2432,17 @@ a.navbar-brand:hover {
 }
 .collage_circle {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 6%;
+  left: 11%;
   width: 15vw;
   height: 15vw;
   border-radius: 50%;
-  background-color: #f3a13b;
+  background: rgb(243, 161, 59);
+  background: linear-gradient(
+    180deg,
+    rgba(243, 161, 59, 1) 0%,
+    rgba(122, 81, 30, 0.3) 100%
+  );
   z-index: 1;
 }
 .collage_img {
@@ -2448,7 +2452,7 @@ a.navbar-brand:hover {
 .sm_circle_1 {
   position: absolute;
   bottom: 2vw;
-  right: 4vw;
+  right: 8vw;
   width: 3vw;
   height: 3vw;
   border-radius: 50%;
@@ -2459,7 +2463,7 @@ a.navbar-brand:hover {
 .sm_circle_2 {
   position: absolute;
   bottom: 0;
-  right: 7vw;
+  right: 12vw;
   width: 5vw;
   height: 5vw;
   border-radius: 50%;
@@ -2470,7 +2474,7 @@ a.navbar-brand:hover {
 .sm_circle_3 {
   position: absolute;
   bottom: 5vw;
-  right: 7vw;
+  right: 11vw;
   width: 2vw;
   height: 2vw;
   border-radius: 50%;
@@ -2494,6 +2498,11 @@ a.navbar-brand:hover {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .foot-bg {
+    /* background-image: url("/img/footer_bg.png"); */
+    background-repeat: no-repeat;
+    background-size: 100vw 45vh;
+  }
   .swiperimg {
     border-radius: 20px;
     width: 230px;
