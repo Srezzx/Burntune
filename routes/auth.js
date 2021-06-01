@@ -33,8 +33,8 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
     phno: phone,
   } = req.body;
   let errors = [];
-  var username = username2.toLowerCase();
-  if (!username || !email || !password || !name) {
+  var usernamelower = username2.toLowerCase();
+  if (!usernamelower || !email || !password || !name) {
     errors.push({ msg: "Please enter all fields" });
   }
 
@@ -42,7 +42,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
     console.log(errors);
     res.json({ status: "Error", msg: "Please enter all the nessesary fields" });
   } else {
-    var user2 = await User.findOne({ username: username });
+    var user2 = await User.findOne({ username: usernamelower });
     await User.findOne({ email: email }).then(async (user) => {
       if (user || user2) {
         errors.push({ msg: "User already exists" });
@@ -54,7 +54,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
         const newUser = new User({
           joinDate: new Date(),
           name,
-          username,
+          usernamelower,
           email,
           password,
           phno,
@@ -85,7 +85,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
                   subject: "Burntune: New Registration",
                   html:
                     '<html lang="en"><body><h2 style="text-align: center;">' +
-                    req.body.username +
+                    req.body.usernamelower +
                     '</h2><h2 style="text-align: center;">' +
                     req.body.email +
                     '</h2><h2 style="text-align: center;">' +
