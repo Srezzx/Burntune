@@ -23,9 +23,17 @@ const { forwardAuthenticated } = require("../config/auth");
 
 router.post("/register", forwardAuthenticated, async (req, res) => {
   console.log(req.body);
-  const { name, username, email, age, instrument, password, phno } = req.body;
+  const {
+    name,
+    username,
+    email,
+    age,
+    instrument,
+    password,
+    phno: phone,
+  } = req.body;
   let errors = [];
-
+  username = username.toLowerCase();
   if (!username || !email || !password || !name) {
     errors.push({ msg: "Please enter all fields" });
   }
@@ -43,7 +51,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
           msg: "User already exists, please try using another email or username",
         });
       } else {
-        const newUser = await new User({
+        const newUser = new User({
           joinDate: new Date(),
           name,
           username,
@@ -59,10 +67,12 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
             newUser
               .save()
               .then(async (user) => {
+                console.log("Prepare to send new registration email");
                 var transporter = nodemailer.createTransport({
                   service: "gmail",
                   port: 465,
-                  secure: true,
+                  secure: false,
+                  ignoreTLS: true,
                   auth: {
                     user: emailfrom,
                     pass: emailpassword,
@@ -86,7 +96,7 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
                     req.body.instrument +
                     "</h4></body></html>",
                 };
-
+                console.log("reeached here - 1");
                 transporter.sendMail(mailOptions, function (error, info) {
                   if (error) {
                     console.log(error);
