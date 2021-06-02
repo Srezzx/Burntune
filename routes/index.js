@@ -18,9 +18,12 @@ router.get("/profile/:id", ensureAuthenticated, async (req, res) => {
   var id = req.params.id;
   var history = await History.find({}).populate("student").populate("slot");
   history = history.filter(function (entity) {
-    if (entity.student._id.toString() === req.user._id.toString()) {
-      return entity;
+    if (entity.student) {
+      if (entity.student._id.toString() === req.user._id.toString()) {
+        return entity;
+      }
     }
+    console.log(entity.student);
   });
   User.findById(id, function (err, foundUser) {
     if (err) {

@@ -1051,7 +1051,8 @@
         event.preventDefault();
         var nickname = $("#loginform")
           .find('input[name="login_username"]')
-          .val();
+          .val()
+          .toLowerCase();
         var password = $("#loginform")
           .find('input[name="login_password"]')
           .val();
