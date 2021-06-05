@@ -37,6 +37,8 @@ router.post("/register", forwardAuthenticated, async (req, res) => {
   } else {
     var user2 = await User.findOne({ username: usernamelower });
     await User.findOne({ email: email }).then(async (user) => {
+      console.log(user);
+      console.log(user2);
       if (user || user2) {
         errors.push({ msg: "User already exists" });
         res.json({
