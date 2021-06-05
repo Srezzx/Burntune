@@ -96,19 +96,19 @@ router.post("/contactme", async (req, res) => {
   });
 });
 
-// router.get("/test", async(req,res) => {
+// router.get("/test", async (req, res) => {
 //   res.render("category");
 // });
 
-// router.get("/test2", async(req,res) => {
+// router.get("/test2", async (req, res) => {
 //   res.render("blog");
 // });
 
-// router.get("/test3", async(req,res) => {
+// router.get("/test3", async (req, res) => {
 //   res.render("artist");
 // });
 
-// router.get("/test4", async(req,res) => {
+// router.get("/test4", async (req, res) => {
 //   res.render("playlist");
 // });
 
