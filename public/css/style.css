@@ -145,7 +145,7 @@ Commom elements
 .site-btn:hover {
   border: 2px #faf6eb solid;
   background-color: transparent;
-  color: #faf6eb;
+  color: #faf6eb !important;
   font-weight: 500;
   transition: 0.2s;
 }
