@@ -371,7 +371,7 @@
                   <div class="panel-body">
                     <ul class="list-unstyled activity-list">
                       <% history.reverse().forEach(function(entity){ %> <%
-                      if(entity.mode === "Self") { %>
+                      if(entity.mode === "Self" && entity.student._id) { %>
                       <li style="background-color: #f6ffd9">
                         <p>
                           <a href="/profile/<%= entity.student._id %>"
@@ -382,7 +382,8 @@
                           %><span class="timestamp">20 minutes ago</span>
                         </p>
                       </li>
-                      <% } else if(entity.mode === "Admin"){ %>
+                      <% } else if(entity.mode === "Admin" &&
+                      entity.student._id){ %>
                       <li style="background-color: #dce8e6">
                         <p>
                           <a href="/profile/<%= entity.student._id %>"
@@ -395,7 +396,8 @@
                           >
                         </p>
                       </li>
-                      <% } else if(entity.mode === "Registration"){ %>
+                      <% } else if(entity.mode === "Registration" &&
+                      entity.student._id){ %>
                       <li style="background-color: #bce1e1">
                         <p>
                           <a href="/profile/<%= entity.student._id %>"
